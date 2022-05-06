@@ -6,7 +6,7 @@ import { QUERY_PRODUCTS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
 
 import { useStoreContext } from '../utils/GlobalState';
-import Cart from '../components/Cart';
+import Cart from '../components/cart/cart.component';
 import {
   REMOVE_FROM_CART,
   UPDATE_CART_QUANTITY,
@@ -72,7 +72,10 @@ function Detail() {
         product: { ...currentProduct, purchaseQuantity: 1 },
       });
       // if product isn't in the cart yet, add it to the current shopping cart in IndexedDB
-      idbPromise('cart', 'put', { ...currentProduct, purchaseQuantity: 1 });
+      idbPromise('cart', 'put', {
+        ...currentProduct,
+        purchaseQuantity: 1,
+      });
     }
   };
 
