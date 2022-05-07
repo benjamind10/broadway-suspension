@@ -19,7 +19,7 @@ import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Nav from './components/navigation/navigation.component';
+import Navigation from './components/navigation/navigation.component';
 import OrderHistory from './pages/OrderHistory';
 
 const httpLink = createHttpLink({
@@ -47,7 +47,7 @@ function App() {
       <Router>
         <div>
           <StoreProvider>
-            <Nav />
+            <Navigation />
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/login' component={Login} />

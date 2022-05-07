@@ -1,0 +1,12 @@
+.nav-container {
+    background-color: #f7f7fa;
+    padding: 7px;
+}
+
+.nav-logo {
+    max-height: 60px;
+}
+
+.nav-item:hover  {
+    color: #e48a97 !important;
+}
