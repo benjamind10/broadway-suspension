@@ -1,6 +1,7 @@
 .nav-container {
     background-color: #f7f7fa;
     padding: 7px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .nav-item a {
@@ -16,6 +17,10 @@
     color: #e48a97 !important;
 }
 
+.mobile-nav {
+    display: none;
+}
+
 @media screen and (max-width: 768px) {
     .nav-logo {
         max-height: 100%;
@@ -23,5 +28,8 @@
     }
     .desktop-nav {
         display: none;
+    }
+    .mobile-nav {
+        display: block;
     }
 }
