@@ -27,8 +27,8 @@ function Navigation() {
 
   return (
     <container className='row justify-content-center nav-container'>
-      <div className='col-12 col-md-2 nav-logo' href='#'><img src={BwsLogo} className='nav-logo' alt='Broadway Logo' /></div>
-      <div className='col-12 col-md-8'>
+      <a className='col-12 col-md-2 nav-logo' href='/'><img src={BwsLogo} className='nav-logo' alt='Broadway Logo' /></a>
+      <div className='col-12 col-md-8 desktop-nav'>
         <Navbar pullRight>
           <Nav>
             <Nav.Item href='/' className='nav-item' >Home</Nav.Item>
