@@ -9,6 +9,10 @@
   color: inherit;
 }
 
+.nav-item {
+    transition: 0.2s;
+}
+
 .nav-logo {
     max-height: 60px;
 }

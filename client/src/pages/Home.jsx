@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div className='container'>
       <HomeHero />
-      <Cart />
+      {/* <Cart /> */}
     </div>
   );
 };
