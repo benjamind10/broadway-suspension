@@ -40,9 +40,13 @@ function ProductItem(item) {
   };
 
   return (
-    <Card className='col-4' style={{ width: '18rem' }}>
-      <Link to={`/products/${_id}`}>
-        <Card.Img variant='top' src={`/images/${image}`} />
+    <Card className='col-6 col-md-4' style={{ width: '18rem' }}>
+      <Link className='text-center' to={`/products/${_id}`}>
+        <Card.Img
+          className='product-image'
+          variant='top'
+          src={`/images/${image}`}
+        />
       </Link>
       <Card.Body>
         <Card.Title>{name}</Card.Title>

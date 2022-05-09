@@ -10,7 +10,11 @@ import Cart from '../components/cart/cart.component';
 const Bmw = () => {
   return (
     <Container>
-      <ProductList />
+      <div className='container'>
+        <div className='row justify-content-around'>
+          <ProductList />
+        </div>
+      </div>
       <Cart />
     </Container>
   );
