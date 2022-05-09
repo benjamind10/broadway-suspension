@@ -10,7 +10,7 @@ const HomeHero = () => {
     return (
         <div className='container hero-container pt-3'>
             <div className='row justify-content-center'>
-                <Link to='/about' className='col-12 col-md-5 hero-img p-0'>
+                <Link to='/about' className='col-12 col-md-6 hero-img p-0'>
                     <img src={EngineeringPic} alt='Engineering Picture' />
                 </Link>
 
@@ -18,7 +18,7 @@ const HomeHero = () => {
                     <img src={HeroLogo} alt='BWS 10 Year Anniversary' />
                 </div>
 
-                <Link to='/about' className='col-12 col-md-5 hero-img p-0'>
+                <Link to='/about' className='col-12 col-md-6 hero-img p-0'>
                 <img src={CoiloverPic} alt='Coilover Picture' />
                 </Link>
             </div>

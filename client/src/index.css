@@ -28,6 +28,10 @@ body {
   color: var(--dark);
 }
 
+.main-body {
+  background-color: rgb(225, 225, 225);
+}
+
 h1,
 h2,
 h3,
