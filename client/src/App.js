@@ -22,6 +22,8 @@ import Signup from './pages/Signup';
 import Navigation from './components/navigation/navigation.component';
 import OrderHistory from './pages/OrderHistory';
 import Bmw from './pages/Bmw';
+import CamberPlatesTopMounts from './pages/CamberPlatesTopMounts';
+import Vw from './pages/Vw';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -54,6 +56,12 @@ function App() {
               <Route exact path='/login' component={Login} />
               <Route exact path='/signup' component={Signup} />
               <Route exact path='/bmw' component={Bmw} />
+              <Route exact path='/volkswagen' component={Vw} />
+              <Route
+                exact
+                path='/camber-plates'
+                component={CamberPlatesTopMounts}
+              />
               <Route
                 exact
                 path='/orderHistory'

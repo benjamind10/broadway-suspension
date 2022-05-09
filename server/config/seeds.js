@@ -7,8 +7,7 @@ db.once('open', async () => {
   const categories = await Category.insertMany([
     { name: 'BMW' },
     { name: 'Volkswagen' },
-    { name: 'Camber Plates' },
-    { name: 'Top Hats' },
+    { name: 'Camber Plates & Top Hats' },
   ]);
 
   console.log('categories seeded');
@@ -95,7 +94,7 @@ db.once('open', async () => {
     },
     {
       name: 'Lexus Adjustable Top Hats',
-      category: categories[3]._id,
+      category: categories[2]._id,
       description: 'BWS Adjustable Top Hats- Lexus',
       image: 'lexus_top_hats.jpg',
       price: 349.99,
@@ -103,7 +102,7 @@ db.once('open', async () => {
     },
     {
       name: 'Nissan/Infiniti Camber Plates',
-      category: categories[3]._id,
+      category: categories[2]._id,
       description: 'BWS Camber Plates - Nissan/Infiniti',
       image: 'nissan_infinit_top_hats.jpg',
       price: 349.99,
@@ -111,7 +110,7 @@ db.once('open', async () => {
     },
     {
       name: 'VW MK5/6 Coilovers',
-      category: categories[2]._id,
+      category: categories[1]._id,
       description:
         'Volkswagen MK5/MK6 Rabbit-GTI-Jetta (with IRS) - Broadway Static 500S Coilovers',
       image: 'vw_mk6_rabbit_coilovers.jpg',

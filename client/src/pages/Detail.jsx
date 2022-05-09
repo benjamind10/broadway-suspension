@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useHistory } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { Button } from 'react-bootstrap';
 
 import { QUERY_PRODUCTS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
@@ -24,6 +25,8 @@ function Detail() {
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
   const { products, cart } = state;
+
+  const history = useHistory();
 
   useEffect(() => {
     // already in global store
@@ -93,7 +96,7 @@ function Detail() {
     <>
       {currentProduct ? (
         <div className='container my-1'>
-          <Link to='/'>← Back to Products</Link>
+          <Button onClick={history.goBack}>← Back to Products</Button>
 
           <h2>{currentProduct.name}</h2>
 

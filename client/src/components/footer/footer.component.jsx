@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+<<<<<<< HEAD
 import './footer.styles.css';
 
 const Footer = () => {
@@ -58,6 +59,13 @@ const Footer = () => {
 
     </div>
   );
+=======
+
+import Footer from './compon';
+
+const Footer = () => {
+  return <div className='container'></div>;
+>>>>>>> develop
 };
 
 export default Footer;

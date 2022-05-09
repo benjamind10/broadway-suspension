@@ -1,14 +1,51 @@
-import React from 'react';
-import Auth from '../../utils/auth';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Dropdown } from 'rsuite';
 import BwsLogo from '../../assets/bws-logo.png';
+
+import { useQuery } from '@apollo/client';
+import { QUERY_CATEGORIES } from '../../utils/queries';
+import { useStoreContext } from '../../utils/GlobalState';
+import {
+  UPDATE_CATEGORIES,
+  UPDATE_CURRENT_CATEGORY,
+} from '../../utils/actions';
+import { idbPromise } from '../../utils/helpers';
+import Auth from '../../utils/auth';
 import 'rsuite/dist/rsuite.min.css';
 import './navigation.styles.css';
 
 function Navigation() {
-  const state = {
-    collapseID: '',
+  const [state, dispatch] = useStoreContext();
+
+  const { categories } = state;
+
+  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+
+  useEffect(() => {
+    if (categoryData) {
+      dispatch({
+        type: UPDATE_CATEGORIES,
+        categories: categoryData.categories,
+      });
+      categoryData.categories.forEach(category => {
+        idbPromise('categories', 'put', category);
+      });
+    } else if (!loading) {
+      idbPromise('categories', 'get').then(categories => {
+        dispatch({
+          type: UPDATE_CATEGORIES,
+          categories: categories,
+        });
+      });
+    }
+  }, [categoryData, loading, dispatch]);
+
+  const handleClick = id => {
+    dispatch({
+      type: UPDATE_CURRENT_CATEGORY,
+      currentCategory: id,
+    });
   };
 
   const toggleCollapse = collapseID => () => {
@@ -17,6 +54,8 @@ function Navigation() {
         prevState.collapseID !== collapseID ? collapseID : '',
     }));
   };
+
+  console.log(categories[2]);
 
   function showNavigation() {
     if (Auth.loggedIn()) {
@@ -62,18 +101,27 @@ function Navigation() {
             <Nav.Item href='/about' className='nav-item'>
               About
             </Nav.Item>
-            <Nav.Item href='/camber-plates' className='nav-item'>
+            <Nav.Item
+              onClick={() => handleClick(categories[2]._id)}
+              href='/camber-plates'
+              className='nav-item'
+            >
               Camber Plates & Top Mounts
             </Nav.Item>
             <Dropdown className='nav-item' title='Shop by Make'>
               <Link to='/bmw'>
-                <Dropdown.Item href='/bmw' className='nav-item'>
+                <Dropdown.Item
+                  onClick={() => handleClick(categories[0]._id)}
+                  href='/bmw'
+                  className='nav-item'
+                >
                   BMW
                 </Dropdown.Item>
               </Link>
               <Link to='/volkswagen'>
                 <Dropdown.Item
-                  href='/volkswagen'
+                  onClick={() => handleClick(categories[1]._id)}
+                  href='/audi'
                   className='nav-item'
                 >
                   Volkswagen
