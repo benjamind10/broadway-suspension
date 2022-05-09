@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container, Row } from 'react-bootstrap';
 
 import ProductList from '../components/product-list/product-list.component';
 import CategoryMenu from '../components/category-menu/category-menu.component';
@@ -8,10 +9,10 @@ import Cart from '../components/cart/cart.component';
 
 const Bmw = () => {
   return (
-    <div className='container'>
+    <Container>
       <ProductList />
       <Cart />
-    </div>
+    </Container>
   );
 };
 

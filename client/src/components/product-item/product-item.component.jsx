@@ -40,26 +40,26 @@ function ProductItem(item) {
   };
 
   return (
-    <Container>
-      <Row>
-        <Card className='col-4' style={{ width: '18rem' }}>
-          <Link to={`/products/${_id}`}>
-            <Card.Img variant='top' src={`/images/${image}`} />
-          </Link>
-          <Card.Body>
-            <Card.Title>{name}</Card.Title>
-            <Card.Text>{description}</Card.Text>
-            <br />
-            <div>
-              {quantity} {pluralize('item', quantity)} in stock
-            </div>
-            <Button variant='primary' onClick={addToCart}>
-              Add to cart
-            </Button>
-          </Card.Body>
-        </Card>
-      </Row>
-    </Container>
+    <Card className='col-4' style={{ width: '18rem' }}>
+      <Link to={`/products/${_id}`}>
+        <Card.Img variant='top' src={`/images/${image}`} />
+      </Link>
+      <Card.Body>
+        <Card.Title>{name}</Card.Title>
+        <Card.Text>{description}</Card.Text>
+        <br />
+        <div>
+          {quantity} {pluralize('item', quantity)} in stock
+        </div>
+        <div>
+          <span>${price}</span>
+        </div>
+        <br />
+        <Button variant='primary' onClick={addToCart}>
+          Add to cart
+        </Button>
+      </Card.Body>
+    </Card>
   );
 }
 
