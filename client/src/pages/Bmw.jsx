@@ -1,18 +1,17 @@
-import React, { useState } from 'react';
-import { Container, Row } from 'react-bootstrap';
+import React from 'react';
+import { useParams } from 'react-router-dom';
+import { Container } from 'react-bootstrap';
 
 import ProductList from '../components/product-list/product-list.component';
-import CategoryMenu from '../components/category-menu/category-menu.component';
-import HomeHero from '../components/home-hero/home-hero.component';
-import ReviewCards from '../components/review-cards/review-cards.component';
 import Cart from '../components/cart/cart.component';
 
 const Bmw = () => {
+  const { id } = useParams();
   return (
     <Container>
       <div className='container'>
         <div className='row justify-content-around'>
-          <ProductList />
+          <ProductList id={id} />
         </div>
       </div>
       <Cart />

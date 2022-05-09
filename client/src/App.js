@@ -55,11 +55,11 @@ function App() {
               <Route exact path='/' component={Home} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/signup' component={Signup} />
-              <Route exact path='/bmw' component={Bmw} />
-              <Route exact path='/volkswagen' component={Vw} />
+              <Route exact path='/bmw/:id' component={Bmw} />
+              <Route exact path='/volkswagen/:id' component={Vw} />
               <Route
                 exact
-                path='/camber-plates'
+                path='/camber-plates/:id'
                 component={CamberPlatesTopMounts}
               />
               <Route

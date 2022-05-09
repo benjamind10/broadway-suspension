@@ -9,10 +9,10 @@ import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 
-function ProductList() {
+function ProductList({ id }) {
   const [state, dispatch] = useStoreContext();
 
-  const { currentCategory } = state;
+  const currentCategory = id;
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -44,9 +44,9 @@ function ProductList() {
       return state.products;
     }
 
-    return state.products.filter(
-      product => product.category._id === currentCategory
-    );
+    return state.products.filter(product => {
+      return product.category._id === currentCategory;
+    });
   }
 
   return (

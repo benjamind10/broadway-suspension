@@ -87,6 +87,10 @@ function Navigation() {
     }
   }
 
+  useEffect(() => {
+    console.log('Categories useEffect', categories);
+  }, [categories]);
+
   return (
     <div className='row justify-content-center nav-container'>
       <a className='col-8 col-md-2 nav-logo' href='/'>
@@ -101,29 +105,19 @@ function Navigation() {
             <Nav.Item href='/about' className='nav-item'>
               About
             </Nav.Item>
-            <Nav.Item
-              onClick={() => handleClick(categories[2]._id)}
-              href='/camber-plates'
-              className='nav-item'
-            >
-              Camber Plates & Top Mounts
-            </Nav.Item>
+            <Link to={`/camber-plates/${categories[2]?._id}`}>
+              <Nav.Item href='/camber-plates' className='nav-item'>
+                Camber Plates & Top Mounts
+              </Nav.Item>
+            </Link>
             <Dropdown className='nav-item' title='Shop by Make'>
-              <Link to='/bmw'>
-                <Dropdown.Item
-                  onClick={() => handleClick(categories[0]._id)}
-                  href='/bmw'
-                  className='nav-item'
-                >
+              <Link to={`/bmw/${categories[0]?._id}`}>
+                <Dropdown.Item href='/bmw' className='nav-item'>
                   BMW
                 </Dropdown.Item>
               </Link>
-              <Link to='/volkswagen'>
-                <Dropdown.Item
-                  onClick={() => handleClick(categories[1]._id)}
-                  href='/audi'
-                  className='nav-item'
-                >
+              <Link to={`/volkswagen/${categories[1]?._id}`}>
+                <Dropdown.Item href='/audi' className='nav-item'>
                   Volkswagen
                 </Dropdown.Item>
               </Link>
