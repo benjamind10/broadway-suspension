@@ -1,19 +1,20 @@
-import React from "react";
-import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
-import { Navbar, Nav, Dropdown } from "rsuite";
-import BwsLogo from "../../assets/bws-logo.png";
-import "rsuite/dist/rsuite.min.css";
-import "./navigation.styles.css";
+import React from 'react';
+import Auth from '../../utils/auth';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, Dropdown } from 'rsuite';
+import BwsLogo from '../../assets/bws-logo.png';
+import 'rsuite/dist/rsuite.min.css';
+import './navigation.styles.css';
 
 function Navigation() {
   const state = {
-    collapseID: "",
+    collapseID: '',
   };
 
-  const toggleCollapse = (collapseID) => () => {
-    this.setState((prevState) => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : "",
+  const toggleCollapse = collapseID => () => {
+    this.setState(prevState => ({
+      collapseID:
+        prevState.collapseID !== collapseID ? collapseID : '',
     }));
   };
 
@@ -24,7 +25,11 @@ function Navigation() {
           <Nav.Item href='/orderHistory' className='nav-item'>
             Order History
           </Nav.Item>
-          <Nav.Item href='/' onClick={() => Auth.logout()} className='nav-item'>
+          <Nav.Item
+            href='/'
+            onClick={() => Auth.logout()}
+            className='nav-item'
+          >
             Logout
           </Nav.Item>
         </Nav>
@@ -66,9 +71,12 @@ function Navigation() {
                   BMW
                 </Dropdown.Item>
               </Link>
-              <Link to='/audi'>
-                <Dropdown.Item href='/audi' className='nav-item'>
-                  Audi
+              <Link to='/volkswagen'>
+                <Dropdown.Item
+                  href='/volkswagen'
+                  className='nav-item'
+                >
+                  Volkswagen
                 </Dropdown.Item>
               </Link>
             </Dropdown>
@@ -76,9 +84,7 @@ function Navigation() {
           <Nav pullRight>{showNavigation()}</Nav>
         </Navbar>
       </div>
-      <div className='col-4 mobile-nav'>
-        
-      </div>
+      <div className='col-4 mobile-nav'></div>
     </div>
   );
 }
