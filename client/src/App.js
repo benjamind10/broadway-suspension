@@ -24,6 +24,7 @@ import OrderHistory from './pages/OrderHistory';
 import Bmw from './pages/Bmw';
 import CamberPlatesTopMounts from './pages/CamberPlatesTopMounts';
 import Vw from './pages/Vw';
+import Footer from './components/footer/footer.component';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -70,6 +71,7 @@ function App() {
               <Route exact path='/products/:id' component={Detail} />
               <Route component={NoMatch} />
             </Switch>
+            <Footer />
           </StoreProvider>
         </div>
       </Router>

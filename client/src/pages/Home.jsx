@@ -5,7 +5,6 @@ import React, { useState } from 'react';
 import HomeHero from '../components/home-hero/home-hero.component';
 import ReviewCards from '../components/review-cards/review-cards.component';
 import Cart from '../components/cart/cart.component';
-import Footer from  '../components/footer/footer.component';
 
 const Home = () => {
   return (
@@ -13,7 +12,6 @@ const Home = () => {
       <HomeHero />
       <ReviewCards />
       {/* <Cart /> */}
-      <Footer/>
     </div>
   );
 };

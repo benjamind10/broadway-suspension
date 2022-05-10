@@ -51,6 +51,15 @@ db.once('open', async () => {
       quantity: 5,
     },
     {
+      name: 'VW MK5/6 Coilovers',
+      category: categories[1]._id,
+      description:
+        'Volkswagen MK5/MK6 Rabbit-GTI-Jetta (with IRS) - Broadway Static 500S Coilovers',
+      image: 'vw_mk6_rabbit_coilovers.jpg',
+      price: 1524.99,
+      quantity: 16,
+    },
+    {
       name: 'BWS II MK7 Coilovers',
       category: categories[1]._id,
       description:
@@ -107,15 +116,6 @@ db.once('open', async () => {
       image: 'nissan_infinit_top_hats.jpg',
       price: 349.99,
       quantity: 6,
-    },
-    {
-      name: 'VW MK5/6 Coilovers',
-      category: categories[1]._id,
-      description:
-        'Volkswagen MK5/MK6 Rabbit-GTI-Jetta (with IRS) - Broadway Static 500S Coilovers',
-      image: 'vw_mk6_rabbit_coilovers.jpg',
-      price: 1524.99,
-      quantity: 16,
     },
   ]);
 
