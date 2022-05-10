@@ -27,6 +27,7 @@ export const reducer = (state, action) => {
       };
 
     case UPDATE_CURRENT_CATEGORY:
+      console.log('Switch ', action);
       return {
         ...state,
         currentCategory: action.currentCategory,

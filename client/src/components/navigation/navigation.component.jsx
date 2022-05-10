@@ -1,58 +1,134 @@
-import React from "react";
-import Auth from "../../utils/auth";
-import { Link } from "react-router-dom";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, Dropdown } from 'rsuite';
+import BwsLogo from '../../assets/bws-logo.png';
 
-function Nav() {
+import { useQuery } from '@apollo/client';
+import { QUERY_CATEGORIES } from '../../utils/queries';
+import { useStoreContext } from '../../utils/GlobalState';
+import {
+  UPDATE_CATEGORIES,
+  UPDATE_CURRENT_CATEGORY,
+} from '../../utils/actions';
+import { idbPromise } from '../../utils/helpers';
+import Auth from '../../utils/auth';
+import 'rsuite/dist/rsuite.min.css';
+import './navigation.styles.css';
+
+function Navigation() {
+  const [state, dispatch] = useStoreContext();
+
+  const { categories } = state;
+
+  const { loading, data: categoryData } = useQuery(QUERY_CATEGORIES);
+
+  useEffect(() => {
+    if (categoryData) {
+      dispatch({
+        type: UPDATE_CATEGORIES,
+        categories: categoryData.categories,
+      });
+      categoryData.categories.forEach(category => {
+        idbPromise('categories', 'put', category);
+      });
+    } else if (!loading) {
+      idbPromise('categories', 'get').then(categories => {
+        dispatch({
+          type: UPDATE_CATEGORIES,
+          categories: categories,
+        });
+      });
+    }
+  }, [categoryData, loading, dispatch]);
+
+  const handleClick = id => {
+    dispatch({
+      type: UPDATE_CURRENT_CATEGORY,
+      currentCategory: id,
+    });
+  };
+
+  const toggleCollapse = collapseID => () => {
+    this.setState(prevState => ({
+      collapseID:
+        prevState.collapseID !== collapseID ? collapseID : '',
+    }));
+  };
+
+  console.log(categories[2]);
 
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/orderHistory">
-              Order History
-            </Link>
-          </li>
-          <li className="mx-1">
-            {/* this is not using the Link component to logout or user and then refresh the application to the start */}
-            <a href="/" onClick={() => Auth.logout()}>
-              Logout
-            </a>
-          </li>
-        </ul>
+        <Nav pullRight>
+          <Nav.Item href='/orderHistory' className='nav-item'>
+            Order History
+          </Nav.Item>
+          <Nav.Item
+            href='/'
+            onClick={() => Auth.logout()}
+            className='nav-item'
+          >
+            Logout
+          </Nav.Item>
+        </Nav>
       );
     } else {
       return (
-        <ul className="flex-row">
-          <li className="mx-1">
-            <Link to="/signup">
-              Signup
-            </Link>
-          </li>
-          <li className="mx-1">
-            <Link to="/login">
-              Login
-            </Link>
-          </li>
-        </ul>
+        <Nav pullRight>
+          <Nav.Item href='/signup' className='nav-item'>
+            Signup
+          </Nav.Item>
+          <Nav.Item href='/login' className='nav-item'>
+            Login
+          </Nav.Item>
+        </Nav>
       );
     }
   }
 
-  return (
-    <header className="flex-row px-1">
-      <h1>
-        <Link to="/">
-          <span role="img" aria-label="shopping bag">🛍️</span>
-          -Shop-Shop
-        </Link>
-      </h1>
+  useEffect(() => {
+    console.log('Categories useEffect', categories);
+  }, [categories]);
 
-      <nav>
-        {showNavigation()}
-      </nav>
-    </header>
+  return (
+    <div className='row justify-content-center nav-container'>
+      <a className='col-8 col-md-2 nav-logo' href='/'>
+        <img src={BwsLogo} className='nav-logo' alt='Broadway Logo' />
+      </a>
+      <div className='col-12 col-md-6 desktop-nav'>
+        <Navbar pullRight>
+          <Nav>
+            <Nav.Item href='/' className='nav-item'>
+              Home
+            </Nav.Item>
+            <Nav.Item href='/about' className='nav-item'>
+              About
+            </Nav.Item>
+            <Link to={`/camber-plates/${categories[2]?._id}`}>
+              <Nav.Item href='/camber-plates' className='nav-item camb-class'>
+                Camber Plates & Top Mounts
+              </Nav.Item>
+            </Link>
+            <Dropdown className='nav-item' title='Shop by Make'>
+              <Link to={`/bmw/${categories[0]?._id}`}>
+                <Dropdown.Item href='/bmw' className='nav-item'>
+                  BMW
+                </Dropdown.Item>
+              </Link>
+              <Link to={`/volkswagen/${categories[1]?._id}`}>
+                <Dropdown.Item href='/audi' className='nav-item'>
+                  Volkswagen
+                </Dropdown.Item>
+              </Link>
+            </Dropdown>
+          </Nav>
+          <Nav pullRight>{showNavigation()}</Nav>
+        </Navbar>
+      </div>
+      <div className='col-4 mobile-nav'></div>
+    </div>
   );
 }
 
-export default Nav;
+export default Navigation;

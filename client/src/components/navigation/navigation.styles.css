@@ -1,0 +1,44 @@
+.nav-container {
+  background-color: #f7f7fa;
+  padding: 7px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-item a {
+  text-decoration: none;
+  color: inherit !important;
+}
+
+.nav-item {
+  transition: 0.2s;
+}
+
+.nav-logo {
+  max-height: 60px;
+}
+
+.nav-item:hover {
+  color: #e48a97 !important;
+}
+
+.camb-class {
+  text-decoration: none;
+  color: rgb(99, 99, 99) !important;
+}
+
+.mobile-nav {
+  display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .nav-logo {
+    max-height: 100%;
+    max-width: 100%;
+  }
+  .desktop-nav {
+    display: none;
+  }
+  .mobile-nav {
+    display: block;
+  }
+}
