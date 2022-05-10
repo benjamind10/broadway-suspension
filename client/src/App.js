@@ -19,8 +19,12 @@ import Detail from './pages/Detail';
 import NoMatch from './pages/NoMatch';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
-import Nav from './components/navigation/navigation.component';
+import Navigation from './components/navigation/navigation.component';
 import OrderHistory from './pages/OrderHistory';
+import Bmw from './pages/Bmw';
+import CamberPlatesTopMounts from './pages/CamberPlatesTopMounts';
+import Vw from './pages/Vw';
+import Footer from './components/footer/footer.component';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -45,13 +49,20 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <div className='main-body'>
           <StoreProvider>
-            <Nav />
+            <Navigation />
             <Switch>
               <Route exact path='/' component={Home} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/signup' component={Signup} />
+              <Route exact path='/bmw/:id' component={Bmw} />
+              <Route exact path='/volkswagen/:id' component={Vw} />
+              <Route
+                exact
+                path='/camber-plates/:id'
+                component={CamberPlatesTopMounts}
+              />
               <Route
                 exact
                 path='/orderHistory'
@@ -60,6 +71,7 @@ function App() {
               <Route exact path='/products/:id' component={Detail} />
               <Route component={NoMatch} />
             </Switch>
+            <Footer />
           </StoreProvider>
         </div>
       </Router>

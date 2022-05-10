@@ -1,0 +1,28 @@
+/* .review-container-overlay {
+  
+} */
+
+.review-card-container {
+  background-image: url('../../assets/review-image.JPG');
+  background-size: contain;
+  background-position: center;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.review-title {
+  font-family: Helvetica, "Helvetica Neue", Arial, "Lucida Grande", sans-serif !important;
+  font-weight: 400;
+  margin: 5px 0;
+  line-height: 1.25;
+  color: rgb(27, 27, 27);
+}
+
+.review-card {
+  width: 18rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.icon-quote {
+    max-width: 20px;
+    margin: 5px 5px 10px 20px;
+}
