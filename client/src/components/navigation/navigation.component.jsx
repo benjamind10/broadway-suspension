@@ -14,6 +14,7 @@ import { idbPromise } from '../../utils/helpers';
 import Auth from '../../utils/auth';
 import 'rsuite/dist/rsuite.min.css';
 import './navigation.styles.css';
+import Cart from '../cart/cart.component';
 
 function Navigation() {
   const [state, dispatch] = useStoreContext();
@@ -40,13 +41,6 @@ function Navigation() {
       });
     }
   }, [categoryData, loading, dispatch]);
-
-  const handleClick = id => {
-    dispatch({
-      type: UPDATE_CURRENT_CATEGORY,
-      currentCategory: id,
-    });
-  };
 
   const toggleCollapse = collapseID => () => {
     this.setState(prevState => ({
@@ -93,11 +87,12 @@ function Navigation() {
 
   return (
     <div className='row justify-content-center nav-container'>
+      <Cart />
       <a className='col-8 col-md-2 nav-logo' href='/'>
         <img src={BwsLogo} className='nav-logo' alt='Broadway Logo' />
       </a>
       <div className='col-12 col-md-6 desktop-nav'>
-        <Navbar pullRight>
+        <Navbar className='navbar' pullRight>
           <Nav>
             <Nav.Item href='/' className='nav-item'>
               Home

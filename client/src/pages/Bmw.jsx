@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import { Container } from 'react-bootstrap';
 
 import ProductList from '../components/product-list/product-list.component';
-import Cart from '../components/cart/cart.component';
 
 const Bmw = () => {
   const { id } = useParams();
@@ -14,7 +13,6 @@ const Bmw = () => {
           <ProductList id={id} />
         </div>
       </div>
-      <Cart />
     </Container>
   );
 };

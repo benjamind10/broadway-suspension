@@ -11,7 +11,7 @@ const Home = () => {
     <div className='container'>
       <HomeHero />
       <ReviewCards />
-      {/* <Cart /> */}
+      <Cart />
     </div>
   );
 };
