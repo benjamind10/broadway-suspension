@@ -106,7 +106,7 @@ function Navigation() {
               About
             </Nav.Item>
             <Link to={`/camber-plates/${categories[2]?._id}`}>
-              <Nav.Item href='/camber-plates' className='nav-item'>
+              <Nav.Item href='/camber-plates' className='nav-item camb-class'>
                 Camber Plates & Top Mounts
               </Nav.Item>
             </Link>

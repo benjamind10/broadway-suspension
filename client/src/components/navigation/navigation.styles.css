@@ -6,7 +6,7 @@
 
 .nav-item a {
   text-decoration: none;
-  color: inherit;
+  color: inherit !important;
 }
 
 .nav-item {
@@ -19,6 +19,11 @@
 
 .nav-item:hover {
   color: #e48a97 !important;
+}
+
+.camb-class {
+  text-decoration: none;
+  color: rgb(99, 99, 99) !important;
 }
 
 .mobile-nav {
