@@ -43,13 +43,13 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div className='flex-row'>
+    <div className='flex-row bg-dark p-2 rounded-bottom'>
       <div>
         <img src={`/images/${item.image}`} alt='' />
       </div>
       <div>
         <div>
-          {item.name}, ${item.price}
+         <p className='font-italic '><span className='font-weight-bold'>{item.name}</span>: ${item.price}</p>
         </div>
         <div>
           <span>Qty:</span>
