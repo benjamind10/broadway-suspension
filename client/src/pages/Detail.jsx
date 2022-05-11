@@ -103,8 +103,11 @@ function Detail() {
 
           <p>
             <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to cart</button>
+            <button className='btn btn-success' onClick={addToCart}>
+              Add to cart
+            </button>
             <button
+              className='btn btn-danger'
               disabled={!cart.find(p => p._id === currentProduct._id)}
               onClick={removeFromCart}
             >
@@ -113,6 +116,7 @@ function Detail() {
           </p>
 
           <img
+            className='product-detail'
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
