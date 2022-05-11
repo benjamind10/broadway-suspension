@@ -58,6 +58,14 @@ const Cart = () => {
     });
   }
 
+  useEffect(() => {
+    if (data) {
+      stripePromise.then(res => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
+
   if (!state.cartOpen) {
     return (
       <div className='cart-closed' onClick={toggleCart}>

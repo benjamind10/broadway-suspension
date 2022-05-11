@@ -15,7 +15,7 @@ const HomeHero = () => {
           to='/about'
           className='col-12 col-md-6 eng-hero-img p-0'
         >
-          <img src={EngineeringPic} alt='Engineering Picture' />
+          <img src={EngineeringPic} alt='Engineering process' />
           <div className='engineering-text text-center text-white p-4'>
             <h6>Learn more about our engineering process...</h6>
           </div>
@@ -29,7 +29,7 @@ const HomeHero = () => {
           to='/about'
           className='col-12 col-md-6 coil-hero-img p-0'
         >
-          <img src={CoiloverPic} alt='Coilover Picture' />
+          <img src={CoiloverPic} alt='Coilovers' />
           <div className='coilover-text text-white text-center p-4'>
             <h6>Learn more about our suspension products...</h6>
           </div>
