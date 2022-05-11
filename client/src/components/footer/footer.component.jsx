@@ -1,24 +1,24 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 import './footer.styles.css';
 
 const Footer = () => {
   return (
-    <div className='container'>
+    <div>
       <footer className='site-footer'>
         <div className='container'>
           <div className='row'>
             <div className='col-sm-12 col-md-6'>
               <h6>About</h6>
               <p className='text-justify'>
-                Scanfcode.com <i>CODE WANTS TO BE SIMPLE </i> is an
-                initiative to help the upcoming programmers with the
-                code. Scanfcode focuses on providing the most
-                efficient code or snippets as the code wants to be
-                simple. We will help programmers build up concepts in
-                different programming languages that include C, C++,
-                Java, HTML, CSS, Bootstrap, JavaScript, PHP, Android,
-                SQL and Algorithm.
+                Lorem, ipsum dolor sit amet consectetur adipisicing
+                elit. Laboriosam, doloribus nam officia molestias at
+                dolor, quos temporibus eius dolore neque aliquam qui
+                magnam consequuntur, ex non provident ipsam ab
+                voluptates.
               </p>
             </div>
 
@@ -26,24 +26,16 @@ const Footer = () => {
               <h6>Products</h6>
               <ul className='footer-links'>
                 <li>
-                  <a href='http://scanfcode.com/category/c-language/'>
-                    Merch
-                  </a>
+                  <a href='/'>Merch</a>
                 </li>
                 <li>
-                  <a href='http://scanfcode.com/category/front-end-development/'>
-                    Springs
-                  </a>
+                  <a href='/'>Springs</a>
                 </li>
                 <li>
-                  <a href='http://scanfcode.com/category/back-end-development/'>
-                    Parts and Accessories
-                  </a>
+                  <a href='/'>Parts and Accessories</a>
                 </li>
                 <li>
-                  <a href='http://scanfcode.com/category/android/'>
-                    BWS Top Hats
-                  </a>
+                  <a href='/'>BWS Top Hats</a>
                 </li>
               </ul>
             </div>
@@ -52,17 +44,13 @@ const Footer = () => {
               <h6>Quick Links</h6>
               <ul className='footer-links'>
                 <li>
-                  <a href='http://scanfcode.com/about/'>About Us</a>
+                  <a href='/about/'>About Us</a>
                 </li>
                 <li>
-                  <a href='http://scanfcode.com/contact/'>
-                    Contact Us
-                  </a>
+                  <a href='/about'>Contact Us</a>
                 </li>
                 <li>
-                  <a href='http://scanfcode.com/contribute-at-scanfcode/'>
-                    Contribute
-                  </a>
+                  <a href='/'>Contribute</a>
                 </li>
                 <li>
                   <a href='http://scanfcode.com/privacy-policy/'>
@@ -70,7 +58,7 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href='http://scanfcode.com/sitemap/'>Sitemap</a>
+                  <a href='/'>Sitemap</a>
                 </li>
               </ul>
             </div>
@@ -80,40 +68,31 @@ const Footer = () => {
           <div className='row'>
             <div className='col-md-8 col-sm-6 col-xs-12'>
               <p className='copyright-text'>
-                Copyright &copy; 2017 All Rights Reserved by
-                <a href='http://scanfcode.com/'>Scanfcode</a>.
+                Copyright &copy; {new Date().getFullYear()} All Rights
+                Reserved
               </p>
             </div>
 
             <div className='col-md-4 col-sm-6 col-xs-12'>
               <ul className='social-icons'>
                 <li>
-                  <a
-                    className='facebook'
-                    href='http://scanfcode.com/'
-                  >
-                    <i className='fa fa-facebook'></i>
+                  <a className='facebook' href='/'>
+                    <i class='fa-brands fa-facebook-f'></i>
                   </a>
                 </li>
                 <li>
-                  <a className='twitter' href='http://scanfcode.com/'>
-                    <i className='fa fa-twitter'></i>
+                  <a className='twitter' href='/'>
+                    <i class='fa-brands fa-twitter'></i>
                   </a>
                 </li>
                 <li>
-                  <a
-                    className='dribbble'
-                    href='http://scanfcode.com/'
-                  >
-                    <i className='fa fa-dribbble'></i>
+                  <a className='instagram' href='/'>
+                    <i class='fa-brands fa-instagram'></i>
                   </a>
                 </li>
                 <li>
-                  <a
-                    className='linkedin'
-                    href='http://scanfcode.com/'
-                  >
-                    <i className='fa fa-linkedin'></i>
+                  <a className='youtube' href='/'>
+                    <i class='fa-brands fa-youtube'></i>
                   </a>
                 </li>
               </ul>

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Button } from 'react-bootstrap';
 
 import { pluralize } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
@@ -40,17 +39,17 @@ function ProductItem(item) {
   };
 
   return (
-    <Card className='col-6 col-md-4' style={{ width: '18rem' }}>
+    <div className='card mb-5' style={{ width: '18rem' }}>
       <Link className='text-center' to={`/products/${_id}`}>
-        <Card.Img
-          className='product-image'
-          variant='top'
+        <img
           src={`/images/${image}`}
+          className='card-img-top'
+          alt='product card'
         />
       </Link>
-      <Card.Body>
-        <Card.Title>{name}</Card.Title>
-        <Card.Text>{description}</Card.Text>
+      <div className='card-body'>
+        <h5 className='card-title'>{name}</h5>
+        <p className='card-text'>{description}</p>
         <br />
         <div>
           {quantity} {pluralize('item', quantity)} in stock
@@ -59,11 +58,15 @@ function ProductItem(item) {
           <span>${price}</span>
         </div>
         <br />
-        <Button variant='primary' onClick={addToCart}>
+        <button
+          className='btn btn-success'
+          variant='primary'
+          onClick={addToCart}
+        >
           Add to cart
-        </Button>
-      </Card.Body>
-    </Card>
+        </button>
+      </div>
+    </div>
   );
 }
 

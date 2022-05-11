@@ -13,7 +13,6 @@ import {
 import { idbPromise } from '../../utils/helpers';
 import CartIcon from '../../assets/shoppingcart.svg';
 
-
 import './cart.styles.css';
 
 const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
@@ -72,7 +71,11 @@ const Cart = () => {
     return (
       <div className='cart-closed' onClick={toggleCart}>
         <span role='img' aria-label='trash'>
-          <img className='cart-icon' src={CartIcon} alt='shopping cart' />
+          <img
+            className='cart-icon'
+            src={CartIcon}
+            alt='shopping cart'
+          />
         </span>
       </div>
     );
@@ -85,7 +88,7 @@ const Cart = () => {
         <h8>[close]</h8>
       </div>
       <div className='cart-header mt-4'>
-      <h2 className='font-italic'>Shopping Cart</h2>
+        <h2 className='font-italic'>Shopping Cart</h2>
       </div>
       {state.cart.length ? (
         <div>
@@ -95,20 +98,21 @@ const Cart = () => {
           <div className='row space-between justify-content-center text-center'>
             <h6 className='col-12'>Total: ${calculateTotal()}</h6>
             {Auth.loggedIn() ? (
-
-              <button className='btn btn-primary m-1 col-10'>Checkout</button>
+              <button
+                onClick={submitCheckout}
+                className='btn btn-primary m-1 col-10'
+              >
+                Checkout
+              </button>
             ) : (
-              <span><h6>(log in to check out)</h6></span>
+              <span>
+                <h6>(log in to check out)</h6>
+              </span>
             )}
           </div>
         </div>
       ) : (
-        <h3>
-          <span role='img' aria-label='shocked'>
-            😱
-          </span>
-          You haven't added anything to your cart yet!
-        </h3>
+        <h3>You haven't added anything to your cart yet!</h3>
       )}
     </div>
   );

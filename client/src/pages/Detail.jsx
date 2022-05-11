@@ -94,8 +94,10 @@ function Detail() {
   return (
     <>
       {currentProduct ? (
-        <div className='container my-1'>
-          <Button onClick={history.goBack}>← Back to Products</Button>
+        <div className='container'>
+          <Button className='mt-3' onClick={history.goBack}>
+            ← Back to Products
+          </Button>
 
           <h2>{currentProduct.name}</h2>
 
@@ -103,8 +105,11 @@ function Detail() {
 
           <p>
             <strong>Price:</strong>${currentProduct.price}{' '}
-            <button onClick={addToCart}>Add to cart</button>
+            <button className='btn btn-success' onClick={addToCart}>
+              Add to cart
+            </button>
             <button
+              className='btn btn-danger'
               disabled={!cart.find(p => p._id === currentProduct._id)}
               onClick={removeFromCart}
             >
@@ -113,6 +118,7 @@ function Detail() {
           </p>
 
           <img
+            className='product-detail mb-5'
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
