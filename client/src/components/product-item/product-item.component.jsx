@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { pluralize } from '../../utils/helpers';
-import { Card, Button, Container, Row } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap';
 
+import { pluralize } from '../../utils/helpers';
 import { useStoreContext } from '../../utils/GlobalState';
 import {
   ADD_TO_CART,

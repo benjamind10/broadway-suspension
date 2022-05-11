@@ -1,8 +1,10 @@
 import React, { useEffect } from 'react';
+import { loadStripe } from '@stripe/stripe-js';
+import { useLazyQuery } from '@apollo/client';
+
 import CartItem from '../cart-item/cart-item.component';
 import Auth from '../../utils/auth';
-import './cart.styles.css';
-
+import { QUERY_CHECKOUT } from '../../utils/queries';
 import { useStoreContext } from '../../utils/GlobalState';
 import {
   TOGGLE_CART,
@@ -12,8 +14,14 @@ import { idbPromise } from '../../utils/helpers';
 import CartIcon from '../../assets/shoppingcart.svg';
 
 
+import './cart.styles.css';
+
+const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
+
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
+
+  const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
   useEffect(() => {
     async function getCart() {
@@ -37,6 +45,28 @@ const Cart = () => {
     });
     return sum.toFixed(2);
   }
+
+  function submitCheckout() {
+    const productIds = [];
+
+    state.cart.forEach(item => {
+      for (let i = 0; i < item.purchaseQuantity; i++) {
+        productIds.push(item._id);
+      }
+    });
+
+    getCheckout({
+      variables: { products: productIds },
+    });
+  }
+
+  useEffect(() => {
+    if (data) {
+      stripePromise.then(res => {
+        res.redirectToCheckout({ sessionId: data.checkout.session });
+      });
+    }
+  }, [data]);
 
   if (!state.cartOpen) {
     return (
@@ -65,6 +95,7 @@ const Cart = () => {
           <div className='row space-between justify-content-center text-center'>
             <h6 className='col-12'>Total: ${calculateTotal()}</h6>
             {Auth.loggedIn() ? (
+
               <button className='btn btn-primary m-1 col-10'>Checkout</button>
             ) : (
               <span><h6>(log in to check out)</h6></span>
