@@ -1,28 +1,41 @@
+
+
 .cart {
   position: fixed;
   top: 0;
   right: 0;
-  min-width: 20%;
-  max-width: 30%;
+  min-width: 15%;
+  max-width: 20%;
   max-height: 60%;
-  background-color: var(--light);
+  background-color: grey;
   overflow: auto;
   padding: 0.5rem;
+  margin: 0.5rem;
   box-shadow: 0 0 1rem rgba(0, 0, 0, 0.5);
   border-bottom-left-radius: 0.5rem;
+}
+
+.cart-icon {
+  max-width: 1.5rem;
 }
 
 .cart h2 {
   font-size: 1.5rem;
   border-bottom: 1px solid var(--dark);
   padding-bottom: 0.5rem;
-  margin: 1rem 0;
+}
+
+.cart-header {
+  text-align: center;
+  background-color: rgba(230, 151, 151, 0.746);
+  border-radius: 0.5rem 0.5rem 0rem 0rem;
 }
 
 .cart .close {
+  font-size: 1rem;
   position: absolute;
-  top: 0.5rem;
-  right: 0.5rem;
+  top: 0.3rem;
+  right: 0.3rem;
   cursor: pointer;
   color: var(--tertiary);
 }
@@ -37,7 +50,6 @@
   right: 1%;
   font-size: 2rem;
   cursor: pointer;
-  background-color: var(--secondary);
   border-radius: 50%;
   padding: 0.25rem;
   width: 50px;

@@ -9,6 +9,8 @@ import {
   ADD_MULTIPLE_TO_CART,
 } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
+import CartIcon from '../../assets/shoppingcart.svg';
+
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
@@ -40,7 +42,7 @@ const Cart = () => {
     return (
       <div className='cart-closed' onClick={toggleCart}>
         <span role='img' aria-label='trash'>
-          🛒
+          <img className='cart-icon' src={CartIcon} alt='shopping cart' />
         </span>
       </div>
     );
@@ -48,22 +50,24 @@ const Cart = () => {
   console.log(state);
 
   return (
-    <div className='cart'>
+    <div className='cart cart-styles text-light'>
       <div className='close' onClick={toggleCart}>
-        [close]
+        <h8>[close]</h8>
       </div>
-      <h2>Shopping Cart</h2>
+      <div className='cart-header mt-4'>
+      <h2 className='font-italic'>Shopping Cart</h2>
+      </div>
       {state.cart.length ? (
         <div>
           {state.cart.map(item => (
             <CartItem key={item._id} item={item} />
           ))}
-          <div className='flex-row space-between'>
-            <strong>Total: ${calculateTotal()}</strong>
+          <div className='row space-between justify-content-center text-center'>
+            <h6 className='col-12'>Total: ${calculateTotal()}</h6>
             {Auth.loggedIn() ? (
-              <button>Checkout</button>
+              <button className='btn btn-primary m-1 col-10'>Checkout</button>
             ) : (
-              <span>(log in to check out)</span>
+              <span><h6>(log in to check out)</h6></span>
             )}
           </div>
         </div>
