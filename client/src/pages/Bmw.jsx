@@ -8,13 +8,11 @@ const Bmw = () => {
   const { id } = useParams();
 
   return (
-    <Container>
-      <div className='container'>
-        <div className='row justify-content-around'>
-          <ProductList id={id} />
-        </div>
+    <div className='container camberplates-container'>
+      <div className='row justify-content-around'>
+        <ProductList id={id} />
       </div>
-    </Container>
+    </div>
   );
 };
 
