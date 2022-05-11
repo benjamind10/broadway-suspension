@@ -6,6 +6,7 @@ import Cart from '../components/cart/cart.component';
 
 const Vw = () => {
   const { id } = useParams();
+
   return (
     <div className='container'>
       <ProductList id={id} />
