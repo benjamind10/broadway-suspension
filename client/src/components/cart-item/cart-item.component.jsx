@@ -49,7 +49,10 @@ const CartItem = ({ item }) => {
       </div>
       <div>
         <div>
-         <p className='font-italic '><span className='font-weight-bold'>{item.name}</span>: ${item.price}</p>
+          <p className='font-italic '>
+            <span className='font-weight-bold'>{item.name}</span>: $
+            {item.price}
+          </p>
         </div>
         <div>
           <span>Qty:</span>
@@ -58,6 +61,7 @@ const CartItem = ({ item }) => {
             placeholder='1'
             value={item.purchaseQuantity}
             onChange={onChange}
+            style={{ color: 'black' }}
           />
 
           <span
