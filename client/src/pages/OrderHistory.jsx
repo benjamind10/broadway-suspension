@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { Button } from 'react-bootstrap';
-
 import { useQuery } from '@apollo/client';
+
 import { QUERY_USER } from '../utils/queries';
 
 function OrderHistory() {

@@ -6,6 +6,7 @@ import ProductList from '../components/product-list/product-list.component';
 
 const Bmw = () => {
   const { id } = useParams();
+
   return (
     <Container>
       <div className='container'>

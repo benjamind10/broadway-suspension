@@ -25,7 +25,6 @@ import Bmw from './pages/Bmw';
 import CamberPlatesTopMounts from './pages/CamberPlatesTopMounts';
 import Vw from './pages/Vw';
 import Footer from './components/footer/footer.component';
-import Cart from './components/cart/cart.component';
 
 const httpLink = createHttpLink({
   uri: '/graphql',

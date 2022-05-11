@@ -1,20 +1,18 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Navbar, Nav, Dropdown } from 'rsuite';
-import BwsLogo from '../../assets/bws-logo.png';
-
 import { useQuery } from '@apollo/client';
+import 'rsuite/dist/rsuite.min.css';
+
+import BwsLogo from '../../assets/bws-logo.png';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { useStoreContext } from '../../utils/GlobalState';
-import {
-  UPDATE_CATEGORIES,
-  UPDATE_CURRENT_CATEGORY,
-} from '../../utils/actions';
+import { UPDATE_CATEGORIES } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 import Auth from '../../utils/auth';
-import 'rsuite/dist/rsuite.min.css';
-import './navigation.styles.css';
 import Cart from '../cart/cart.component';
+
+import './navigation.styles.css';
 
 function Navigation() {
   const [state, dispatch] = useStoreContext();
@@ -49,8 +47,6 @@ function Navigation() {
     }));
   };
 
-  console.log(categories[2]);
-
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -80,10 +76,6 @@ function Navigation() {
       );
     }
   }
-
-  useEffect(() => {
-    console.log('Categories useEffect', categories);
-  }, [categories]);
 
   return (
     <div className='row justify-content-center nav-container'>

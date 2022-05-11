@@ -5,7 +5,6 @@ import { Button } from 'react-bootstrap';
 
 import { QUERY_PRODUCTS } from '../utils/queries';
 import spinner from '../assets/spinner.gif';
-
 import { useStoreContext } from '../utils/GlobalState';
 import Cart from '../components/cart/cart.component';
 import {
