@@ -53,12 +53,10 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     checkout: async (parent, args, context) => {
-      console.log('Console log', args);
+      const url = new URL(context.headers.referer).origin;
       const order = new Order({ products: args.products });
       const result = await order.populate('products').execPopulate();
       const { products } = result;
-
-      console.log('Console log', result);
 
       const line_items = [];
 
@@ -67,6 +65,7 @@ const resolvers = {
         const product = await stripe.products.create({
           name: products[i].name,
           description: products[i].description,
+          images: [`${url}/images/${products[i].image}`],
         });
 
         // generate price id using the product id
@@ -87,9 +86,8 @@ const resolvers = {
         payment_method_types: ['card'],
         line_items,
         mode: 'payment',
-        success_url:
-          'https://example.com/success?session_id={CHECKOUT_SESSION_ID}',
-        cancel_url: 'https://example.com/cancel',
+        success_url: `${url}/success?session_id={CHECKOUT_SESSION_ID}`,
+        cancel_url: `${url}/`,
       });
 
       return { session: session.id };

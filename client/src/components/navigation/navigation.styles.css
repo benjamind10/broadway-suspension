@@ -2,6 +2,9 @@
   background-color: #f7f7fa;
   padding: 7px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  position: sticky;
+  top: 0;
+  z-index: 998;
 }
 
 .nav-item a {
