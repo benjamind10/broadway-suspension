@@ -39,7 +39,7 @@ function ProductItem(item) {
   };
 
   return (
-    <div className='card' style={{ width: '18rem' }}>
+    <div className='card mb-5' style={{ width: '18rem' }}>
       <Link className='text-center' to={`/products/${_id}`}>
         <img
           src={`/images/${image}`}

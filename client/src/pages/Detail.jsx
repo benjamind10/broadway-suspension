@@ -94,8 +94,10 @@ function Detail() {
   return (
     <>
       {currentProduct ? (
-        <div className='container my-1'>
-          <Button onClick={history.goBack}>← Back to Products</Button>
+        <div className='container'>
+          <Button className='mt-3' onClick={history.goBack}>
+            ← Back to Products
+          </Button>
 
           <h2>{currentProduct.name}</h2>
 
@@ -116,7 +118,7 @@ function Detail() {
           </p>
 
           <img
-            className='product-detail'
+            className='product-detail mb-5'
             src={`/images/${currentProduct.image}`}
             alt={currentProduct.name}
           />
