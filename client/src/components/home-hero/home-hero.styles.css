@@ -78,3 +78,18 @@
   margin: auto;
   z-index: 997;
 }
+
+@media screen and (max-width: 768px) {
+  .eng-hero-img {
+    max-height: 200px;
+  }
+
+  .coil-hero-img {
+    max-height: 200px;
+  }
+
+  .desktop-text {
+    display: none;
+  }
+
+}

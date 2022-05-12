@@ -17,7 +17,7 @@ const HomeHero = () => {
         >
           <img src={EngineeringPic} alt='Engineering process' />
           <div className='engineering-text text-center text-white p-4'>
-            <h6>Learn more about our engineering process...</h6>
+            <h6 className='desktop-text'>Learn more about our engineering process...</h6>
           </div>
         </Link>
 
@@ -31,7 +31,7 @@ const HomeHero = () => {
         >
           <img src={CoiloverPic} alt='Coilovers' />
           <div className='coilover-text text-white text-center p-4'>
-            <h6>Learn more about our suspension products...</h6>
+            <h6 className='desktop-text'>Learn more about our suspension products...</h6>
           </div>
         </Link>
       </div>
