@@ -1,18 +1,41 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import { Container } from 'react-bootstrap';
+import React, { Component } from 'react';
 
-import ProductList from '../components/product-list/product-list.component';
-import Checkout from '../components/checkout/checkout.component';
+import { useStoreContext } from '../utils/GlobalState';
 
-const CheckoutPage = () => {
-  const { id } = useParams();
+// import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+
+import './checkout.styles.css';
+
+const Checkout = () => {
+  const [state, dispatch] = useStoreContext();
+
+  console.log(state);
 
   return (
-    <Container>
-      <Checkout />
-    </Container>
+    <div className='checkout-container'>
+      <div className='checkout-header'>
+        <div className='header-block'>
+          <span>Product</span>
+        </div>
+        <div className='header-block'>
+          <span>Description</span>
+        </div>
+        <div className='header-block'>
+          <span>Quantity</span>
+        </div>
+        <div className='header-block'>
+          <span>Price</span>
+        </div>
+        <div className='header-block'>
+          <span>Remove</span>
+        </div>
+      </div>
+      {/* {cartItems.map(cartItem => (
+        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
+      ))} */}
+      <div className='total'>TOTAL: $</div>
+    </div>
   );
 };
 
-export default CheckoutPage;
+export default Checkout;
