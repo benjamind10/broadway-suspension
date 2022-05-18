@@ -27,6 +27,7 @@ import Vw from './pages/Vw';
 import Footer from './components/footer/footer.component';
 import Success from './pages/Success';
 import About from './pages/About';
+import CheckoutPage from './pages/Checkout';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -62,6 +63,11 @@ function App() {
               <Route exact path='/bmw/:id' component={Bmw} />
               <Route exact path='/volkswagen/:id' component={Vw} />
               <Route exact path='/about' component={About} />
+              <Route
+                exact
+                path='/checkout'
+                component={CheckoutPage}
+              />
               <Route
                 exact
                 path='/camber-plates/:id'
