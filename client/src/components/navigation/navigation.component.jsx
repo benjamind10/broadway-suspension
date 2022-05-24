@@ -11,6 +11,7 @@ import { UPDATE_CATEGORIES } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
 import Auth from "../../utils/auth";
 import Cart from "../cart/cart.component";
+import LoginModal from "../loginmodal/loginmodal.component";
 
 import "./navigation.styles.css";
 
@@ -61,12 +62,13 @@ function Navigation() {
     } else {
       return (
         <Nav pullRight>
-          <Nav.Item href='/signup' className='nav-item'>
+          {/* <Nav.Item href='/signup' className='nav-item'>
             Signup
           </Nav.Item>
           <Nav.Item href='/login' className='nav-item'>
             Login
-          </Nav.Item>
+          </Nav.Item> */}
+          <LoginModal />
         </Nav>
       );
     }
