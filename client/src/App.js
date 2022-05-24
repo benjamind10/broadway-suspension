@@ -46,6 +46,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+console.log('Test ', process.env);
+
 function App() {
   return (
     <ApolloProvider client={client}>

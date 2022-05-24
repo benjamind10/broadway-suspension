@@ -1,13 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Elements } from '@stripe/react-stripe-js';
 
+import App from './App';
+import { stripePromise } from './utils/stripe';
+
+import './index.css';
+
 ReactDOM.render(
   <React.StrictMode>
-    <Elements>
+    <Elements stripe={stripePromise}>
       <App />
     </Elements>
   </React.StrictMode>,
