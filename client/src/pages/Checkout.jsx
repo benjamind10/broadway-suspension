@@ -1,15 +1,35 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 
 import { useStoreContext } from '../utils/GlobalState';
+import { TOGGLE_CART } from '../utils/actions';
 
-// import CheckoutItem from '../../components/checkout-item/checkout-item.component';
+import CheckoutItem from '../components/checkout-item/checkout-item.component';
 
-import './checkout.styles.css';
+import './checkout.styles.scss';
 
 const Checkout = () => {
   const [state, dispatch] = useStoreContext();
+  const cartItems = state.cart;
 
-  console.log(state);
+  function toggleCart() {
+    dispatch({ type: TOGGLE_CART });
+  }
+
+  function calculateTotal() {
+    let sum = 0;
+    state.cart.forEach(item => {
+      sum += item.price * item.purchaseQuantity;
+    });
+    return sum.toFixed(2);
+  }
+
+  useEffect(() => {
+    toggleCart();
+  }, [state.cart]);
+
+  useEffect(() => {
+    calculateTotal();
+  }, [state.cart]);
 
   return (
     <div className='checkout-container'>
@@ -30,10 +50,10 @@ const Checkout = () => {
           <span>Remove</span>
         </div>
       </div>
-      {/* {cartItems.map(cartItem => (
-        <CheckoutItem key={cartItem.id} cartItem={cartItem} />
-      ))} */}
-      <div className='total'>TOTAL: $</div>
+      {state.cart.map(cartItem => (
+        <CheckoutItem key={cartItem._id} cartItem={cartItem} />
+      ))}
+      <div className='total'>TOTAL: ${calculateTotal()}</div>
     </div>
   );
 };

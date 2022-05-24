@@ -88,8 +88,6 @@ const Cart = () => {
     history.push(path);
   };
 
-  console.log(state);
-
   return (
     <div className='cart cart-styles text-light'>
       <div className='close' onClick={toggleCart}>
