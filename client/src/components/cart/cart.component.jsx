@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 
@@ -19,6 +20,7 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
+  const history = useHistory();
 
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
@@ -80,6 +82,12 @@ const Cart = () => {
       </div>
     );
   }
+
+  const routeChange = () => {
+    let path = `/checkout`;
+    history.push(path);
+  };
+
   console.log(state);
 
   return (
@@ -99,7 +107,7 @@ const Cart = () => {
             <h6 className='col-12'>Total: ${calculateTotal()}</h6>
             {Auth.loggedIn() ? (
               <button
-                onClick={submitCheckout}
+                onClick={routeChange}
                 className='btn btn-primary m-1 col-10'
               >
                 Checkout

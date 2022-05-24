@@ -21,13 +21,11 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Navigation from './components/navigation/navigation.component';
 import OrderHistory from './pages/OrderHistory';
-import Bmw from './pages/Bmw';
-import CamberPlatesTopMounts from './pages/CamberPlatesTopMounts';
-import Vw from './pages/Vw';
 import Footer from './components/footer/footer.component';
 import Success from './pages/Success';
 import About from './pages/About';
 import CheckoutPage from './pages/Checkout';
+import Shop from './pages/Shop';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -60,8 +58,8 @@ function App() {
               <Route exact path='/' component={Home} />
               <Route exact path='/login' component={Login} />
               <Route exact path='/signup' component={Signup} />
-              <Route exact path='/bmw/:id' component={Bmw} />
-              <Route exact path='/volkswagen/:id' component={Vw} />
+              <Route exact path='/bmw/:id' component={Shop} />
+              <Route exact path='/volkswagen/:id' component={Shop} />
               <Route exact path='/about' component={About} />
               <Route
                 exact
@@ -71,7 +69,7 @@ function App() {
               <Route
                 exact
                 path='/camber-plates/:id'
-                component={CamberPlatesTopMounts}
+                component={Shop}
               />
               <Route
                 exact
