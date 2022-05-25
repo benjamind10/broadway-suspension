@@ -7,7 +7,7 @@ import {
 } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 
-import './checkout.item.styles.scss';
+import './checkout.item.styles.css';
 
 const CheckoutItem = ({ cartItem }) => {
   const [state, dispatch] = useStoreContext();

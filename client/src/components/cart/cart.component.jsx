@@ -47,20 +47,6 @@ const Cart = () => {
     return sum.toFixed(2);
   }
 
-  function submitCheckout() {
-    const productIds = [];
-
-    state.cart.forEach(item => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
-        productIds.push(item._id);
-      }
-    });
-
-    getCheckout({
-      variables: { products: productIds },
-    });
-  }
-
   useEffect(() => {
     if (data) {
       stripePromise.then(res => {

@@ -1,27 +1,30 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {
   CardElement,
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
-import { useQuery } from '@apollo/client';
+import { useLazyQuery, useQuery, useMutation } from '@apollo/client';
 
-import { QUERY_USER } from '../../utils/queries';
+import { QUERY_CHECKOUT, QUERY_USER } from '../../utils/queries';
+import { ADD_ORDER } from '../../utils/mutations';
 import { useStoreContext } from '../../utils/GlobalState';
 import Auth from '../../utils/auth';
+import { idbPromise } from '../../utils/helpers';
 
-const PaymentForm = ({ cartTotal }) => {
+import './payment-form.styles.css';
+
+const PaymentForm = ({ cartItems, cartTotal }) => {
   const stripe = useStripe();
   const elements = useElements();
   const [state, dispatch] = useStoreContext();
   const { data } = useQuery(QUERY_USER);
+  const [addOrder] = useMutation(ADD_ORDER);
 
   let user;
   if (data) {
     user = data.user;
   }
-
-  console.log(Auth.loggedIn());
 
   const [isProcessingPayment, setIsProcessingPayment] =
     useState(false);
@@ -42,7 +45,6 @@ const PaymentForm = ({ cartTotal }) => {
       return res.json();
     });
 
-    console.log(response);
     const clientSecret = response.client_secret;
 
     const paymentResult = await stripe.confirmCardPayment(
@@ -64,6 +66,28 @@ const PaymentForm = ({ cartTotal }) => {
     } else {
       if (paymentResult.paymentIntent.status === 'succeeded') {
         alert('Payment Successful!');
+
+        async function saveOrder() {
+          const cart = await idbPromise('cart', 'get');
+          const products = cart.map(item => item._id);
+
+          if (products.length) {
+            const { data } = await addOrder({
+              variables: { products },
+            });
+            const productData = data.addOrder.products;
+
+            productData.forEach(item => {
+              idbPromise('cart', 'delete', item);
+            });
+          }
+        }
+
+        setTimeout(() => {
+          window.location.assign('/');
+        }, 3000);
+
+        saveOrder();
       }
     }
   };

@@ -24,7 +24,7 @@ import OrderHistory from './pages/OrderHistory';
 import Footer from './components/footer/footer.component';
 import Success from './pages/Success';
 import About from './pages/About';
-import CheckoutPage from './pages/Checkout';
+import CheckoutPage from './pages/checkout/Checkout';
 import Shop from './pages/Shop';
 
 const httpLink = createHttpLink({
@@ -45,8 +45,6 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
-console.log('Test ', process.env);
 
 function App() {
   return (
