@@ -29,7 +29,7 @@ const Checkout = () => {
   }, [state.cart]);
 
   useEffect(() => {
-    calculateTotal();
+    const cartTotal = calculateTotal();
   }, [state.cart]);
 
   return (
@@ -55,7 +55,7 @@ const Checkout = () => {
         <CheckoutItem key={cartItem._id} cartItem={cartItem} />
       ))}
       <div className='total'>TOTAL: ${calculateTotal()}</div>
-      <PaymentForm />
+      <PaymentForm cartTotal={calculateTotal()} />
     </div>
   );
 };
