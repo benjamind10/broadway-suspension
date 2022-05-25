@@ -50,7 +50,7 @@ function Navigation() {
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
-        <Nav pullRight>
+        <Nav>
           <Nav.Item href='/orderHistory' className='nav-item'>
             Order History
           </Nav.Item>
@@ -80,7 +80,7 @@ function Navigation() {
       <a className='col-12 col-md-2 nav-logo' href='/'>
         <img src={BwsLogo} className='nav-logo' alt='Broadway Logo' />
       </a>
-      <div className='col-12 col-md-6 desktop-nav'>
+      <div className='col-12 col-md-6 desktop-nav p-0'>
         <Navbar className='navbar' pullRight>
           <Nav>
             <Nav.Item href='/' className='nav-item'>

@@ -1,17 +1,38 @@
-import React from 'react';
+import React, { useState } from "react";
 import { Modal, Form, Button, Input } from "rsuite";
+import { useMutation } from '@apollo/client';
+import { Link } from "react-router-dom";
+
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
+
 import "rsuite/dist/rsuite.min.css";
+import "./loginmodal.styles.css";
 
-const Textarea = React.forwardRef((props, ref) => <Input {...props} as="textarea" ref={ref} />);
-
-const LoginModal = () => {
+const LoginModal = (props) => {
   const [open, setOpen] = React.useState(false);
-  const [formValue, setFormValue] = React.useState({
-    name: '',
+
+  const [formState, setFormState] = useState({
     email: '',
     password: '',
-    textarea: ''
   });
+  const [login, { error }] = useMutation(LOGIN);
+
+  const handleFormSubmit = async event => {
+    event.preventDefault();
+    try {
+      const mutationResponse = await login({
+        variables: {
+          email: formState.email,
+          password: formState.password,
+        },
+      });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (e) {
+      console.log(e);
+    }
+  };
 
   const handleClose = () => {
     setOpen(false);
@@ -19,44 +40,68 @@ const LoginModal = () => {
   const handleOpen = () => {
     setOpen(true);
   };
+
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
+  };
+
+
   return (
     <div>
-      <Modal open={open} onClose={handleClose} size="xs">
+      <Modal open={open} onClose={handleClose} size='xs'>
         <Modal.Header>
-          <Modal.Title>New User</Modal.Title>
+          <br />
+          <span className='text-center border-bottom'>
+            <h6>Login</h6>
+          </span>
         </Modal.Header>
         <Modal.Body>
-          <Form fluid onChange={setFormValue} formValue={formValue}>
-            <Form.Group controlId="name-9">
-              <Form.ControlLabel>Username</Form.ControlLabel>
-              <Form.Control name="name" />
-              <Form.HelpText>Required</Form.HelpText>
-            </Form.Group>
-            <Form.Group controlId="email-9">
-              <Form.ControlLabel>Email</Form.ControlLabel>
-              <Form.Control name="email" type="email" />
-              <Form.HelpText>Required</Form.HelpText>
-            </Form.Group>
-            <Form.Group controlId="password-9">
-              <Form.ControlLabel>Password</Form.ControlLabel>
-              <Form.Control name="password" type="password" autoComplete="off" />
-            </Form.Group>
-            <Form.Group controlId="textarea-9">
-              <Form.ControlLabel>Textarea</Form.ControlLabel>
-              <Form.Control rows={5} name="textarea" accepter={Textarea} />
-            </Form.Group>
-          </Form>
+      <Form onSubmit={handleFormSubmit}>
+        <Form.Group className=''>
+          {/* <label htmlFor='email'>Email address:</label> */}
+          <Form.Control
+            placeholder='youremail@test.com'
+            name='email'
+            type='email'
+            id='email'
+            onChange={handleChange}
+          />
+        </Form.Group>
+        <Form.Group className=''>
+          <Form.Control
+            placeholder='******'
+            name='password'
+            type='password'
+            id='pwd'
+            onChange={handleChange}
+          />
+        </Form.Group>
+        {error ? (
+          <div>
+            <p className='error-text'>
+              The provided credentials are incorrect
+            </p>
+          </div>
+        ) : null}
+        <div className=''>
+        <Button appearance="primary" block>Submit</Button>
+        </div>
+      </Form>
         </Modal.Body>
-        <Modal.Footer>
-          <Button onClick={handleClose} appearance="primary">
-            Confirm
-          </Button>
-          <Button onClick={handleClose} appearance="subtle">
-            Cancel
-          </Button>
+        <Modal.Footer className='text-center'>
+          <div className='text-center pt-3'>
+            <h5>Don't have an account?</h5>
+            <Link to='/signup' onClick={handleClose}>
+              <p className='text-decoration-none pt-2'>Click here to signup!</p>
+            </Link>
+          </div>
         </Modal.Footer>
       </Modal>
-      <Button onClick={handleOpen}>New User</Button>
+      <Button onClick={handleOpen}>Login</Button>
     </div>
   );
 };
