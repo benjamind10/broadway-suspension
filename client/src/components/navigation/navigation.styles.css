@@ -10,6 +10,7 @@
 .nav-item a {
   text-decoration: none;
   color: inherit !important;
+  padding: 0;
 }
 
 .nav-item {
