@@ -4,11 +4,10 @@ import {
   useStripe,
   useElements,
 } from '@stripe/react-stripe-js';
-import { useLazyQuery, useQuery, useMutation } from '@apollo/client';
+import { useQuery, useMutation } from '@apollo/client';
 
-import { QUERY_CHECKOUT, QUERY_USER } from '../../utils/queries';
+import { QUERY_USER } from '../../utils/queries';
 import { ADD_ORDER } from '../../utils/mutations';
-import { useStoreContext } from '../../utils/GlobalState';
 import Auth from '../../utils/auth';
 import { idbPromise } from '../../utils/helpers';
 
@@ -17,7 +16,7 @@ import './payment-form.styles.css';
 const PaymentForm = ({ cartItems, cartTotal }) => {
   const stripe = useStripe();
   const elements = useElements();
-  const [state, dispatch] = useStoreContext();
+
   const { data } = useQuery(QUERY_USER);
   const [addOrder] = useMutation(ADD_ORDER);
 
