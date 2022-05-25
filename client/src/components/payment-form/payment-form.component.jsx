@@ -10,8 +10,6 @@ import { QUERY_USER } from '../../utils/queries';
 import { useStoreContext } from '../../utils/GlobalState';
 import Auth from '../../utils/auth';
 
-import Button from '../button/button.component';
-
 const PaymentForm = ({ cartTotal }) => {
   const stripe = useStripe();
   const elements = useElements();
