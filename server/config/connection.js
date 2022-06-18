@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-    'mongodb://localhost/broadway-suspension',
+    'mongodb://127.0.0.1/broadway-suspension',
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,

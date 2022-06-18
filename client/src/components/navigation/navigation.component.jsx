@@ -1,18 +1,18 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { Navbar, Nav, Dropdown } from "rsuite";
-import { useQuery } from "@apollo/client";
-import "rsuite/dist/rsuite.min.css";
+import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
+import { Navbar, Nav, Dropdown } from 'rsuite';
+import { useQuery } from '@apollo/client';
+import 'rsuite/dist/rsuite.min.css';
 
-import BwsLogo from "../../assets/bws-logo.png";
-import { QUERY_CATEGORIES } from "../../utils/queries";
-import { useStoreContext } from "../../utils/GlobalState";
-import { UPDATE_CATEGORIES } from "../../utils/actions";
-import { idbPromise } from "../../utils/helpers";
-import Auth from "../../utils/auth";
-import Cart from "../cart/cart.component";
+import BwsLogo from '../../assets/bws-logo.png';
+import { QUERY_CATEGORIES } from '../../utils/queries';
+import { useStoreContext } from '../../utils/GlobalState';
+import { UPDATE_CATEGORIES } from '../../utils/actions';
+import { idbPromise } from '../../utils/helpers';
+import Auth from '../../utils/auth';
+import Cart from '../cart/cart.component';
 
-import "./navigation.styles.css";
+import './navigation.styles.css';
 
 function Navigation() {
   const [state, dispatch] = useStoreContext();
@@ -27,11 +27,11 @@ function Navigation() {
         type: UPDATE_CATEGORIES,
         categories: categoryData.categories,
       });
-      categoryData.categories.forEach((category) => {
-        idbPromise("categories", "put", category);
+      categoryData.categories.forEach(category => {
+        idbPromise('categories', 'put', category);
       });
     } else if (!loading) {
-      idbPromise("categories", "get").then((categories) => {
+      idbPromise('categories', 'get').then(categories => {
         dispatch({
           type: UPDATE_CATEGORIES,
           categories: categories,
@@ -40,9 +40,10 @@ function Navigation() {
     }
   }, [categoryData, loading, dispatch]);
 
-  const toggleCollapse = (collapseID) => () => {
-    this.setState((prevState) => ({
-      collapseID: prevState.collapseID !== collapseID ? collapseID : "",
+  const toggleCollapse = collapseID => () => {
+    this.setState(prevState => ({
+      collapseID:
+        prevState.collapseID !== collapseID ? collapseID : '',
     }));
   };
 
@@ -53,7 +54,11 @@ function Navigation() {
           <Nav.Item href='/orderHistory' className='nav-item'>
             Order History
           </Nav.Item>
-          <Nav.Item href='/' onClick={() => Auth.logout()} className='nav-item'>
+          <Nav.Item
+            href='/'
+            onClick={() => Auth.logout()}
+            className='nav-item'
+          >
             Logout
           </Nav.Item>
         </Nav>
@@ -88,7 +93,10 @@ function Navigation() {
               About
             </Nav.Item>
             <Link to={`/camber-plates/${categories[2]?._id}`}>
-              <Nav.Item href='/camber-plates' className='nav-item camb-class'>
+              <Nav.Item
+                href='/camber-plates'
+                className='nav-item camb-class'
+              >
                 Camber Plates & Top Mounts
               </Nav.Item>
             </Link>

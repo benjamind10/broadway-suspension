@@ -10,7 +10,6 @@
 .nav-item a {
   text-decoration: none;
   color: inherit !important;
-  padding: 0;
 }
 
 .nav-item {
@@ -32,6 +31,14 @@
 
 .mobile-nav {
   display: none;
+}
+
+.rs-navbar-item {
+  padding: 10px !important;
+}
+
+.navbar {
+  padding: 0px !important;
 }
 
 @media screen and (max-width: 768px) {

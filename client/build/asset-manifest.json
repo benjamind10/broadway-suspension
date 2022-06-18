@@ -1,0 +1,33 @@
+{
+  "files": {
+    "main.css": "/static/css/main.887f8679.chunk.css",
+    "main.js": "/static/js/main.4f5f1035.chunk.js",
+    "main.js.map": "/static/js/main.4f5f1035.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.8a258a78.js",
+    "runtime-main.js.map": "/static/js/runtime-main.8a258a78.js.map",
+    "static/css/2.c74bb3a0.chunk.css": "/static/css/2.c74bb3a0.chunk.css",
+    "static/js/2.7eeea63f.chunk.js": "/static/js/2.7eeea63f.chunk.js",
+    "static/js/2.7eeea63f.chunk.js.map": "/static/js/2.7eeea63f.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.9c4555ae21e667d351048ba2b7f62489.js": "/precache-manifest.9c4555ae21e667d351048ba2b7f62489.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.c74bb3a0.chunk.css.map": "/static/css/2.c74bb3a0.chunk.css.map",
+    "static/css/main.887f8679.chunk.css.map": "/static/css/main.887f8679.chunk.css.map",
+    "static/js/2.7eeea63f.chunk.js.LICENSE.txt": "/static/js/2.7eeea63f.chunk.js.LICENSE.txt",
+    "static/js/main.4f5f1035.chunk.js.LICENSE.txt": "/static/js/main.4f5f1035.chunk.js.LICENSE.txt",
+    "static/media/bws-logo.png": "/static/media/bws-logo.82be6e02.png",
+    "static/media/casterplate.png": "/static/media/casterplate.51db1e05.png",
+    "static/media/e90coilover.png": "/static/media/e90coilover.414ecc74.png",
+    "static/media/hero-logo.png": "/static/media/hero-logo.da8a2a0a.png",
+    "static/media/review-cards.styles.css": "/static/media/review-image.8c1904d2.JPG",
+    "static/media/shoppingcart.svg": "/static/media/shoppingcart.1f2514a6.svg",
+    "static/media/spinner.gif": "/static/media/spinner.ab497855.gif"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.8a258a78.js",
+    "static/css/2.c74bb3a0.chunk.css",
+    "static/js/2.7eeea63f.chunk.js",
+    "static/css/main.887f8679.chunk.css",
+    "static/js/main.4f5f1035.chunk.js"
+  ]
+}
