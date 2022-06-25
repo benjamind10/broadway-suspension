@@ -10,6 +10,7 @@ MERN e-commerce app for a local suspension store. Uses Node/Express backend with
 - Bootstrap
 - Express
 - Mongodb
+- State
 - Context
 
 ## Contributors:

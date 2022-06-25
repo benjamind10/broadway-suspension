@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
 import { loadStripe } from '@stripe/stripe-js';
 import { useLazyQuery } from '@apollo/client';
 
@@ -19,6 +20,7 @@ const stripePromise = loadStripe('pk_test_TYooMQauvdEDq54NiTphI7jx');
 
 const Cart = () => {
   const [state, dispatch] = useStoreContext();
+  const history = useHistory();
 
   const [getCheckout, { data }] = useLazyQuery(QUERY_CHECKOUT);
 
@@ -45,20 +47,6 @@ const Cart = () => {
     return sum.toFixed(2);
   }
 
-  function submitCheckout() {
-    const productIds = [];
-
-    state.cart.forEach(item => {
-      for (let i = 0; i < item.purchaseQuantity; i++) {
-        productIds.push(item._id);
-      }
-    });
-
-    getCheckout({
-      variables: { products: productIds },
-    });
-  }
-
   useEffect(() => {
     if (data) {
       stripePromise.then(res => {
@@ -80,7 +68,11 @@ const Cart = () => {
       </div>
     );
   }
-  console.log(state);
+
+  const routeChange = () => {
+    let path = `/checkout`;
+    history.push(path);
+  };
 
   return (
     <div className='cart cart-styles text-light'>
@@ -99,7 +91,7 @@ const Cart = () => {
             <h6 className='col-12'>Total: ${calculateTotal()}</h6>
             {Auth.loggedIn() ? (
               <button
-                onClick={submitCheckout}
+                onClick={routeChange}
                 className='btn btn-primary m-1 col-10'
               >
                 Checkout
