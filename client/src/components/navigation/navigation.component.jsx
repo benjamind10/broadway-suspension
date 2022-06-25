@@ -75,10 +75,10 @@ function Navigation() {
   return (
     <div className='row justify-content-center nav-container'>
       <Cart />
-      <a className='col-12 col-md-2 nav-logo' href='/'>
+      <a className='col-12 col-sm-12 col-md-2 nav-logo' href='/'>
         <img src={BwsLogo} className='nav-logo' alt='Broadway Logo' />
       </a>
-      <div className='col-12 col-md-6 desktop-nav'>
+      <div className='col-12 col-sm-12 col-lg-8 desktop-nav'>
         <Navbar className='navbar' pullRight>
           <Nav>
             <Nav.Item href='/' className='nav-item'>
