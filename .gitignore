@@ -3,6 +3,7 @@
 package-lock.json
 yarn-lock.json
 mongo_stuff
+client/build
 
 # Logs
 logs
