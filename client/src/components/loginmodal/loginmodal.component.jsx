@@ -41,7 +41,7 @@ const LoginModal = props => {
       [name]: value,
     });
   };
-const handleClose = () => {
+  const handleClose = () => {
     setOpen(false);
   };
   const handleOpen = () => {
@@ -57,39 +57,37 @@ const handleClose = () => {
           </span>
         </Modal.Header>
         <Modal.Body>
-        <h2>Login</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className='flex-row space-between my-2'>
-          <label htmlFor='email'>Email address:</label>
-          <input
-            placeholder='youremail@test.com'
-            name='email'
-            type='email'
-            id='email'
-            // onChange={handleChange}
-          />
-        </div>
-        <div className='flex-row space-between my-2'>
-          <label htmlFor='pwd'>Password:</label>
-          <input
-            placeholder='******'
-            name='password'
-            type='password'
-            id='pwd'
-            // onChange={handleChange}
-          />
-        </div>
-        {error ? (
-          <div>
-            <p className='error-text'>
-              The provided credentials are incorrect
-            </p>
-          </div>
-        ) : null}
-        <div className='flex-row flex-end'>
-          <button type='submit'>Submit</button>
-        </div>
-      </form>
+          <h2>Login</h2>
+          <form onSubmit={handleFormSubmit}>
+            <div className='flex-row space-between my-2'>
+              <label htmlFor='email'>Email address:</label>
+              <input
+                placeholder='youremail@test.com'
+                name='email'
+                type='email'
+                id='email'
+                onChange={handleChange}
+              />
+            </div>
+            <div className='flex-row space-between my-2'>
+              <label htmlFor='pwd'>Password:</label>
+              <input
+                placeholder='******'
+                name='password'
+                type='password'
+                id='pwd'
+                onChange={handleChange}
+              />
+            </div>
+            {error ? (
+              <div>
+                <p className='error-text'>The provided credentials are incorrect</p>
+              </div>
+            ) : null}
+            <div className='flex-row flex-end'>
+              <button type='submit'>Submit</button>
+            </div>
+          </form>
         </Modal.Body>
         <Modal.Footer className='text-center'>
           <div className='text-center pt-3'>
