@@ -14,11 +14,9 @@ const Footer = () => {
             <div className='col-sm-12 col-md-6'>
               <h6>About</h6>
               <p className='text-justify'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing
-                elit. Laboriosam, doloribus nam officia molestias at
-                dolor, quos temporibus eius dolore neque aliquam qui
-                magnam consequuntur, ex non provident ipsam ab
-                voluptates.
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, doloribus nam
+                officia molestias at dolor, quos temporibus eius dolore neque aliquam qui magnam
+                consequuntur, ex non provident ipsam ab voluptates.
               </p>
             </div>
 
@@ -53,9 +51,7 @@ const Footer = () => {
                   <a href='/'>Contribute</a>
                 </li>
                 <li>
-                  <a href='http://scanfcode.com/privacy-policy/'>
-                    Privacy Policy
-                  </a>
+                  <a href='http://scanfcode.com/privacy-policy/'>Privacy Policy</a>
                 </li>
                 <li>
                   <a href='/'>Sitemap</a>
@@ -68,8 +64,7 @@ const Footer = () => {
           <div className='row'>
             <div className='col-md-8 col-sm-6 col-xs-12'>
               <p className='copyright-text'>
-                Copyright &copy; {new Date().getFullYear()} All Rights
-                Reserved
+                Copyright &copy; {new Date().getFullYear()} All Rights Reserved
               </p>
             </div>
 
@@ -77,22 +72,22 @@ const Footer = () => {
               <ul className='social-icons'>
                 <li>
                   <a className='facebook' href='/'>
-                    <i class='fa-brands fa-facebook-f'></i>
+                    <i className='fa-brands fa-facebook-f'></i>
                   </a>
                 </li>
                 <li>
                   <a className='twitter' href='/'>
-                    <i class='fa-brands fa-twitter'></i>
+                    <i className='fa-brands fa-twitter'></i>
                   </a>
                 </li>
                 <li>
                   <a className='instagram' href='/'>
-                    <i class='fa-brands fa-instagram'></i>
+                    <i className='fa-brands fa-instagram'></i>
                   </a>
                 </li>
                 <li>
                   <a className='youtube' href='/'>
-                    <i class='fa-brands fa-youtube'></i>
+                    <i className='fa-brands fa-youtube'></i>
                   </a>
                 </li>
               </ul>
