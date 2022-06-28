@@ -1,18 +1,18 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useMutation } from '@apollo/client';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { useMutation } from "@apollo/client";
 
-import Auth from '../utils/auth';
-import { ADD_USER } from '../utils/mutations';
+import Auth from "../utils/auth";
+import { ADD_USER } from "../utils/mutations";
 
 function Signup(props) {
   const [formState, setFormState] = useState({
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   });
   const [addUser] = useMutation(ADD_USER);
 
-  const handleFormSubmit = async event => {
+  const handleFormSubmit = async (event) => {
     event.preventDefault();
     const mutationResponse = await addUser({
       variables: {
@@ -26,7 +26,7 @@ function Signup(props) {
     Auth.login(token);
   };
 
-  const handleChange = event => {
+  const handleChange = (event) => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -38,52 +38,56 @@ function Signup(props) {
     <div className='container my-1'>
       <Link to='/login'>← Go to Login</Link>
 
-      <h2>Signup</h2>
-      <form onSubmit={handleFormSubmit}>
-        <div className='flex-row space-between my-2'>
-          <label htmlFor='firstName'>First Name:</label>
-          <input
-            placeholder='First'
-            name='firstName'
-            type='firstName'
-            id='firstName'
-            onChange={handleChange}
-          />
-        </div>
-        <div className='flex-row space-between my-2'>
-          <label htmlFor='lastName'>Last Name:</label>
-          <input
-            placeholder='Last'
-            name='lastName'
-            type='lastName'
-            id='lastName'
-            onChange={handleChange}
-          />
-        </div>
-        <div className='flex-row space-between my-2'>
-          <label htmlFor='email'>Email:</label>
-          <input
-            placeholder='youremail@test.com'
-            name='email'
-            type='email'
-            id='email'
-            onChange={handleChange}
-          />
-        </div>
-        <div className='flex-row space-between my-2'>
-          <label htmlFor='pwd'>Password:</label>
-          <input
-            placeholder='******'
-            name='password'
-            type='password'
-            id='pwd'
-            onChange={handleChange}
-          />
-        </div>
-        <div className='flex-row flex-end'>
-          <button type='submit'>Submit</button>
-        </div>
-      </form>
+      <div className='row justify-content-around m-5 form-bg'>
+        <form className='form-group signup-form text-center rounded col-5 p-2 m-4' onSubmit={handleFormSubmit}>
+          <h2 className='font-italic font-weight-light w-100'>Signup</h2>
+          <div className='flex-row space-between'>
+            <input
+              className='form-control'
+              placeholder='First Name'
+              name='firstName'
+              type='firstName'
+              id='firstName'
+              onChange={handleChange}
+            />
+          </div>
+          <div className='flex-row space-between my-2'>
+            <input
+              className='form-control'
+              placeholder='Last Name'
+              name='lastName'
+              type='lastName'
+              id='lastName'
+              onChange={handleChange}
+            />
+          </div>
+          <div className='flex-row space-between my-2'>
+            <input
+              className='form-control'
+              placeholder='you@email.com'
+              name='email'
+              type='email'
+              id='email'
+              onChange={handleChange}
+            />
+          </div>
+          <div className='flex-row space-between my-2'>
+            <input
+              className='form-control'
+              placeholder='Password'
+              name='password'
+              type='password'
+              id='pwd'
+              onChange={handleChange}
+            />
+          </div>
+          <div className='flex-row flex-end'>
+            <button className='btn btn-light' type='submit'>
+              Submit
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

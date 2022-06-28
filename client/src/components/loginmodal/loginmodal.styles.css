@@ -1,8 +1,23 @@
 .login-button {
-    background-color: var(--peach-theme) !important;
-    transition: .2s !important;
+  background-color: var(--peach-theme) !important;
+  transition: 0.2s !important;
+  text-decoration: none !important;
 }
 
 .login-button:hover {
-    background-color: rgb(222, 147, 147) !important;
+  background-color: rgb(222, 147, 147) !important;
 }
+
+.nav-item {
+  transition: 0.2s;
+  text-decoration: none !important;
+}
+
+.nav-item:hover {
+  color: #e48a97 !important;
+}
+
+.nav-item:focus,.nav-item:active {
+    outline: none !important;
+    box-shadow: none;
+ }
