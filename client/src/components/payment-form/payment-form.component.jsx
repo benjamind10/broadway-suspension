@@ -1,9 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import {
-  CardElement,
-  useStripe,
-  useElements,
-} from '@stripe/react-stripe-js';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useQuery, useMutation } from '@apollo/client';
 
 import { QUERY_USER } from '../../utils/queries';
@@ -25,8 +21,7 @@ const PaymentForm = ({ cartItems, cartTotal }) => {
     user = data.user;
   }
 
-  const [isProcessingPayment, setIsProcessingPayment] =
-    useState(false);
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const paymentHandler = async e => {
     e.preventDefault();
@@ -46,17 +41,14 @@ const PaymentForm = ({ cartItems, cartTotal }) => {
 
     const clientSecret = response.client_secret;
 
-    const paymentResult = await stripe.confirmCardPayment(
-      clientSecret,
-      {
-        payment_method: {
-          card: elements.getElement(CardElement),
-          billing_details: {
-            name: Auth.loggedIn() ? user.firstName : 'Guest',
-          },
+    const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+        billing_details: {
+          name: Auth.loggedIn() ? user.firstName : 'Guest',
         },
-      }
-    );
+      },
+    });
 
     setIsProcessingPayment(false);
 
@@ -96,7 +88,7 @@ const PaymentForm = ({ cartItems, cartTotal }) => {
       <form onSubmit={paymentHandler}>
         <h2>Credit Card Payment:</h2>
         <CardElement />
-        <button>Pay Now</button>
+        <button className='btn btn-primary mt-2'>Pay Now</button>
       </form>
     </div>
   );

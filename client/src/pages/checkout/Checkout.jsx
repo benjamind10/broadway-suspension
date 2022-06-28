@@ -7,6 +7,7 @@ import PaymentForm from '../../components/payment-form/payment-form.component';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
 import './checkout.styles.css';
+import { ShippingAddressElement } from '@stripe/react-stripe-js';
 
 const Checkout = () => {
   const [state, dispatch] = useStoreContext();
@@ -55,10 +56,8 @@ const Checkout = () => {
         <CheckoutItem key={cartItem._id} cartItem={cartItem} />
       ))}
       <div className='total'>TOTAL: ${calculateTotal()}</div>
-      <PaymentForm
-        cartItems={state.cart}
-        cartTotal={calculateTotal()}
-      />
+      <ShippingAddressElement />
+      <PaymentForm cartItems={state.cart} cartTotal={calculateTotal()} />
     </div>
   );
 };
