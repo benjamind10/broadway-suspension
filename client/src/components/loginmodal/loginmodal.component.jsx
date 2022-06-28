@@ -63,6 +63,7 @@ const LoginModal = (props) => {
               <label htmlFor='email'>Email address:</label>
               <input
                 className='form-control'
+
                 placeholder='youremail@test.com'
                 name='email'
                 type='email'
