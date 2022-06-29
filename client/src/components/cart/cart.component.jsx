@@ -77,10 +77,10 @@ const Cart = () => {
   return (
     <div className='cart cart-styles text-light'>
       <div className='close' onClick={toggleCart}>
-        <h8>[close]</h8>
+        <p>[close]</p>
       </div>
       <div className='cart-header mt-4'>
-        <h2 className='font-italic'>Shopping Cart</h2>
+        <h2 className='pt-1'>Your Cart</h2>
       </div>
       {state.cart.length ? (
         <div>
@@ -88,7 +88,7 @@ const Cart = () => {
             <CartItem key={item._id} item={item} />
           ))}
           <div className='row space-between justify-content-center text-center'>
-            <h6 className='col-12'>Total: ${calculateTotal()}</h6>
+            <h6 className='col-12 text-light'>Total: ${calculateTotal()}</h6>
             {Auth.loggedIn() ? (
               <button
                 onClick={routeChange}
