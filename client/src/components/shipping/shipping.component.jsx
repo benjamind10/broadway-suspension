@@ -88,26 +88,26 @@ const Shipping = ({ calculateTotal }) => {
               />
             </label>
             <label className='field pl-3'>
-              <span className='field__label' htmlFor='state'>
-                State
-              </span>
-              <input
-                className='form-control w-75'
-                type='text'
-                id='state'
-                name='state'
-                placeholder='NY'
-                onChange={handleChange}
-              />
-            </label>
-            <label className='field pr-3'>
               <span className='field__label' htmlFor='zipcode'>
                 Zip code
               </span>
               <input
-                className='form-control'
+                className='form-control w-75'
                 type='text'
                 name='zipcode'
+                onChange={handleChange}
+              />
+            </label>
+            <label className='field'>
+              <span className='field__label' htmlFor='state'>
+                State
+              </span>
+              <input
+                className='form-control w-25'
+                type='text'
+                id='state'
+                name='state'
+                placeholder='NY'
                 onChange={handleChange}
               />
             </label>

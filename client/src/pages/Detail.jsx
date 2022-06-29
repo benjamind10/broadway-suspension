@@ -4,7 +4,6 @@ import { useQuery } from '@apollo/client';
 import { Button } from 'react-bootstrap';
 
 import { QUERY_PRODUCTS } from '../utils/queries';
-import spinner from '../assets/spinner.gif';
 import { useStoreContext } from '../utils/GlobalState';
 import Cart from '../components/cart/cart.component';
 import {
@@ -14,6 +13,7 @@ import {
   UPDATE_PRODUCTS,
 } from '../utils/actions';
 import { idbPromise } from '../utils/helpers';
+import LoadingSpinner from '../components/spinner/spinner.component';
 
 function Detail() {
   const [state, dispatch] = useStoreContext();
@@ -105,7 +105,7 @@ function Detail() {
 
           <p>
             <strong>Price:</strong>${currentProduct.price}{' '}
-            <button className='btn btn-success' onClick={addToCart}>
+            <button className='btn btn-success mx-1' onClick={addToCart}>
               Add to cart
             </button>
             <button
@@ -124,7 +124,7 @@ function Detail() {
           />
         </div>
       ) : null}
-      {loading ? <img src={spinner} alt='loading' /> : null}
+      {loading ? <LoadingSpinner /> : null}
       <Cart />
     </>
   );

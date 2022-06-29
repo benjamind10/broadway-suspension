@@ -14,8 +14,6 @@ const PaymentForm = ({ cartItems, cartTotal, shipping }) => {
   const stripe = useStripe();
   const elements = useElements();
 
-  const [isLoading, setIsLoading] = useState(false);
-
   const { data } = useQuery(QUERY_USER);
   const [addOrder] = useMutation(ADD_ORDER);
 
@@ -94,7 +92,7 @@ const PaymentForm = ({ cartItems, cartTotal, shipping }) => {
       <button
         onClick={paymentHandler}
         disabled={isProcessingPayment}
-        className='btn btn-primary mt-4'
+        className='btn btn-primary mt-4 payment-button'
       >
         Pay Now
       </button>
