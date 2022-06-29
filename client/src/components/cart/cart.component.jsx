@@ -7,10 +7,7 @@ import CartItem from '../cart-item/cart-item.component';
 import Auth from '../../utils/auth';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { useStoreContext } from '../../utils/GlobalState';
-import {
-  TOGGLE_CART,
-  ADD_MULTIPLE_TO_CART,
-} from '../../utils/actions';
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 import CartIcon from '../../assets/shoppingcart.svg';
 
@@ -59,11 +56,7 @@ const Cart = () => {
     return (
       <div className='cart-closed' onClick={toggleCart}>
         <span role='img' aria-label='trash'>
-          <img
-            className='cart-icon'
-            src={CartIcon}
-            alt='shopping cart'
-          />
+          <img className='cart-icon' src={CartIcon} alt='shopping cart' />
         </span>
       </div>
     );
@@ -77,7 +70,7 @@ const Cart = () => {
   return (
     <div className='cart cart-styles text-light'>
       <div className='close' onClick={toggleCart}>
-        <h8>[close]</h8>
+        <p>[close]</p>
       </div>
       <div className='cart-header mt-4'>
         <h2 className='font-italic'>Shopping Cart</h2>

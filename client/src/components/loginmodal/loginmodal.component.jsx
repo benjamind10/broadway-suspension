@@ -1,24 +1,24 @@
-import React, { useState } from "react";
-import { Modal, Form, Button, Input } from "rsuite";
-import { useMutation } from "@apollo/client";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import { Modal, Button } from 'rsuite';
+import { useMutation } from '@apollo/client';
+import { Link } from 'react-router-dom';
 
-import { LOGIN } from "../../utils/mutations";
-import Auth from "../../utils/auth";
+import { LOGIN } from '../../utils/mutations';
+import Auth from '../../utils/auth';
 
-import "rsuite/dist/rsuite.min.css";
-import "./loginmodal.styles.css";
+import 'rsuite/dist/rsuite.min.css';
+import './loginmodal.styles.css';
 
-const LoginModal = (props) => {
+const LoginModal = props => {
   const [open, setOpen] = React.useState(false);
 
   const [formState, setFormState] = useState({
-    email: "",
-    password: "",
+    email: '',
+    password: '',
   });
   const [login, { error }] = useMutation(LOGIN);
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = async event => {
     console.log(formState);
     event.preventDefault();
     try {
@@ -35,7 +35,7 @@ const LoginModal = (props) => {
     }
   };
 
-  const handleChange = (event) => {
+  const handleChange = event => {
     const { name, value } = event.target;
     setFormState({
       ...formState,
@@ -63,7 +63,6 @@ const LoginModal = (props) => {
               <label htmlFor='email'>Email address:</label>
               <input
                 className='form-control'
-
                 placeholder='youremail@test.com'
                 name='email'
                 type='email'
@@ -108,7 +107,9 @@ const LoginModal = (props) => {
           </div>
         </Modal.Footer>
       </Modal>
-      <Button className="nav-item" onClick={handleOpen}>Login</Button>
+      <Button className='nav-item' onClick={handleOpen}>
+        Login
+      </Button>
     </div>
   );
 };

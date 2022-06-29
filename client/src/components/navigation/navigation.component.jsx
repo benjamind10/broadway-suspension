@@ -70,7 +70,7 @@ function Navigation() {
 
   return (
     <div className='row justify-content-center nav-container'>
-      <Cart  />
+      <Cart />
       <a className='col-12 col-sm-12 col-md-2 nav-logo' href='/'>
         <img src={BwsLogo} className='nav-logo' alt='Broadway Logo' />
       </a>
@@ -120,7 +120,10 @@ function Navigation() {
                 </Dropdown.Item>
               </Link>
               <Link to={`/camber-plates/${categories[2]?._id}`}>
-                <Dropdown.Item href='/camber-plates' className='nav-item camb-class'>
+                <Dropdown.Item
+                  href='/camber-plates'
+                  className='nav-item camb-class'
+                >
                   Camber Plates & Top Mounts
                 </Dropdown.Item>
               </Link>

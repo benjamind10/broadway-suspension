@@ -1,9 +1,8 @@
-import React, { Component, useEffect } from 'react';
+import React, { useEffect } from 'react';
 
 import { useStoreContext } from '../../utils/GlobalState';
 import { TOGGLE_CART } from '../../utils/actions';
 
-import PaymentForm from '../../components/payment-form/payment-form.component';
 import CheckoutItem from '../../components/checkout-item/checkout-item.component';
 
 import './checkout.styles.css';
@@ -11,7 +10,7 @@ import Shipping from '../../components/shipping/shipping.component';
 
 const Checkout = () => {
   const [state, dispatch] = useStoreContext();
-  const cartItems = state.cart;
+  // const cartItems = state.cart;
 
   function toggleCart() {
     dispatch({ type: TOGGLE_CART });
@@ -29,9 +28,9 @@ const Checkout = () => {
     toggleCart();
   }, [state.cart]);
 
-  useEffect(() => {
-    const cartTotal = calculateTotal();
-  }, [state.cart]);
+  // useEffect(() => {
+  //   const cartTotal = calculateTotal();
+  // }, [state.cart]);
 
   return (
     <div className='checkout-container'>

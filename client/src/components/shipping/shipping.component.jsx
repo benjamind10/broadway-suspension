@@ -1,4 +1,3 @@
-import { Elements } from '@stripe/react-stripe-js';
 import React, { useState } from 'react';
 import { useStoreContext } from '../../utils/GlobalState';
 
@@ -29,7 +28,7 @@ const Shipping = ({ calculateTotal }) => {
           <div className='row'>
             <div className=''>
               <label className='col-md-6 mb-3'>
-                <span className='field__label' for='firstname'>
+                <span className='field__label' htmlFor='firstname'>
                   First name
                 </span>
                 <input
@@ -41,7 +40,7 @@ const Shipping = ({ calculateTotal }) => {
                 />
               </label>
               <label className='col-md-6 mb-3'>
-                <span className='field__label' for='lastname'>
+                <span className='field__label' htmlFor='lastname'>
                   Last name
                 </span>
                 <input
@@ -56,7 +55,7 @@ const Shipping = ({ calculateTotal }) => {
           </div>
           <div className='row'>
             <label className='col-md-6 mb-3'>
-              <span className='field__label' for='address'>
+              <span className='field__label' htmlFor='address'>
                 Address
               </span>
               <input
@@ -67,7 +66,7 @@ const Shipping = ({ calculateTotal }) => {
               />
             </label>
             <label>
-              <span className='field__label' for='country'>
+              <span className='field__label' htmlFor='country'>
                 Country
               </span>
               <select className='form-control' id='country'>
@@ -78,7 +77,7 @@ const Shipping = ({ calculateTotal }) => {
           </div>
           <div className=''>
             <label className='field'>
-              <span className='field__label' for='city'>
+              <span className='field__label' htmlFor='city'>
                 City
               </span>
               <input
@@ -89,7 +88,7 @@ const Shipping = ({ calculateTotal }) => {
               />
             </label>
             <label className='field pl-3'>
-              <span className='field__label' for='state'>
+              <span className='field__label' htmlFor='state'>
                 State
               </span>
               <input
@@ -102,7 +101,7 @@ const Shipping = ({ calculateTotal }) => {
               />
             </label>
             <label className='field pr-3'>
-              <span className='field__label' for='zipcode'>
+              <span className='field__label' htmlFor='zipcode'>
                 Zip code
               </span>
               <input
