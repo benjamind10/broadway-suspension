@@ -1,87 +1,48 @@
 import React from 'react';
-import { Container, Accordion } from 'react-bootstrap';
+
+import './information.styles.css';
 
 const Info = () => {
   return (
-    <Container>
-      <div className='pt-4 accordion' id='accordionExample'>
-        <div className='card'>
-          <div className='card-header' id='headingOne'>
-            <h2 className='mb-0'>
-              <button
-                className='btn btn-link'
-                type='button'
-                data-toggle='collapse'
-                data-target='#collapseOne'
-                aria-expanded='true'
-                aria-controls='collapseOne'
-              >
-                About Us
-              </button>
-            </h2>
-          </div>
+    <div className='container w-75'>
+      <h1 className='p-2 ml-5'>About Us</h1>
 
-          <div
-            id='collapseOne'
-            className='collapse show'
-            aria-labelledby='headingOne'
-            data-parent='#accordionExample'
-          >
-            <div className='card-body'>
-              Anim pariatur cliche reprehenderit, enim eiusmod high
-              life accusamus terry richardson ad squid. 3 wolf moon
-              officia aute, non cupidatat skateboard dolor brunch.
-              Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-              wolf moon tempor, sunt aliqua put a bird on it squid
-              single-origin coffee nulla assumenda shoreditch et.
-              Nihil anim keffiyeh helvetica, craft beer labore wes
-              anderson cred nesciunt sapiente ea proident. Ad vegan
-              excepteur butcher vice lomo. Leggings occaecat craft
-              beer farm-to-table, raw denim aesthetic synth nesciunt
-              you probably haven't heard of them accusamus labore
-              sustainable VHS.
-            </div>
-          </div>
-        </div>
-        <div className='card'>
-          <div className='card-header' id='headingTwo'>
-            <h2 className='mb-0'>
-              <button
-                className='btn btn-link collapsed'
-                type='button'
-                data-toggle='collapse'
-                data-target='#collapseTwo'
-                aria-expanded='false'
-                aria-controls='collapseTwo'
-              >
-                Engineering Process
-              </button>
-            </h2>
-          </div>
-          <div
-            id='collapseTwo'
-            className='collapse'
-            aria-labelledby='headingTwo'
-            data-parent='#accordionExample'
-          >
-            <div className='card-body'>
-              Anim pariatur cliche reprehenderit, enim eiusmod high
-              life accusamus terry richardson ad squid. 3 wolf moon
-              officia aute, non cupidatat skateboard dolor brunch.
-              Food truck quinoa nesciunt laborum eiusmod. Brunch 3
-              wolf moon tempor, sunt aliqua put a bird on it squid
-              single-origin coffee nulla assumenda shoreditch et.
-              Nihil anim keffiyeh helvetica, craft beer labore wes
-              anderson cred nesciunt sapiente ea proident. Ad vegan
-              excepteur butcher vice lomo. Leggings occaecat craft
-              beer farm-to-table, raw denim aesthetic synth nesciunt
-              you probably haven't heard of them accusamus labore
-              sustainable VHS.
-            </div>
-          </div>
+      <div className='row justify-content-center mt-3 shadow'>
+        <div className='col-12 about-picture-coilover shadow'></div>
+        <div className='col-12 about-text mt-1 p-2 shadow'>
+          <h2 className='font-italic'>Coilovers:</h2>
+          <p className='text-light p-2'>
+            When we jumped into the performance suspension industry, we wanted
+            to create a product that stood out way beyond what was available.
+            Whenever we decide to add a new chassis to the lineup we make sure
+            we put our hands on the intended vehicle. From OEM suspension tear
+            down, to test fitting mockups, creating base valving profiles, then
+            finally road testing, we make sure its not just great; it's the
+            best.
+          </p>
         </div>
       </div>
-    </Container>
+      <div className='row justify-content-center mt-3 shadow'>
+        <div className='col-12 about-picture-engineering shadow'></div>
+        <div className='col-12 about-text mt-1 p-2 shadow'>
+          <h2 className='font-italic'>Engineering:</h2>
+          <p className='text-light p-2'>
+            In order to have the best performance suspension on the market, you
+            need to have the best parts to build it with. You know what they
+            say? <br />
+            <span className='font-italic'>
+              If you want it done right you gotta do it yourself.
+            </span>
+            <br />
+            And that's just what we did. With an arsenal of state of the art CNC
+            machines, machinists to run them, and an engineering team just
+            itching to make the next breakthrough product, Broadway Engineering
+            is here to exceed your expectations. We only use the best quality
+            materials to bring you the highest quality parts.
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 

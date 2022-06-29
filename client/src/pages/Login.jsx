@@ -23,6 +23,7 @@ function Login(props) {
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
+      
     } catch (e) {
       console.log(e);
     }

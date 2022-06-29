@@ -1,9 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import {
-  CardElement,
-  useStripe,
-  useElements,
-} from '@stripe/react-stripe-js';
+import React, { useState } from 'react';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { useQuery, useMutation } from '@apollo/client';
 
 import { QUERY_USER } from '../../utils/queries';
@@ -12,10 +8,13 @@ import Auth from '../../utils/auth';
 import { idbPromise } from '../../utils/helpers';
 
 import './payment-form.styles.css';
+import LoadingSpinner from '../spinner/spinner.component';
 
-const PaymentForm = ({ cartItems, cartTotal }) => {
+const PaymentForm = ({ cartItems, cartTotal, shipping }) => {
   const stripe = useStripe();
   const elements = useElements();
+
+  const [isLoading, setIsLoading] = useState(false);
 
   const { data } = useQuery(QUERY_USER);
   const [addOrder] = useMutation(ADD_ORDER);
@@ -25,8 +24,7 @@ const PaymentForm = ({ cartItems, cartTotal }) => {
     user = data.user;
   }
 
-  const [isProcessingPayment, setIsProcessingPayment] =
-    useState(false);
+  const [isProcessingPayment, setIsProcessingPayment] = useState(false);
 
   const paymentHandler = async e => {
     e.preventDefault();
@@ -46,17 +44,14 @@ const PaymentForm = ({ cartItems, cartTotal }) => {
 
     const clientSecret = response.client_secret;
 
-    const paymentResult = await stripe.confirmCardPayment(
-      clientSecret,
-      {
-        payment_method: {
-          card: elements.getElement(CardElement),
-          billing_details: {
-            name: Auth.loggedIn() ? user.firstName : 'Guest',
-          },
+    const paymentResult = await stripe.confirmCardPayment(clientSecret, {
+      payment_method: {
+        card: elements.getElement(CardElement),
+        billing_details: {
+          name: Auth.loggedIn() ? user.firstName : 'Guest',
         },
-      }
-    );
+      },
+    });
 
     setIsProcessingPayment(false);
 
@@ -93,11 +88,16 @@ const PaymentForm = ({ cartItems, cartTotal }) => {
 
   return (
     <div>
-      <form onSubmit={paymentHandler}>
-        <h2>Credit Card Payment:</h2>
-        <CardElement />
-        <button>Pay Now</button>
-      </form>
+      <h2>Credit Card Payment:</h2>
+      {isProcessingPayment ? <LoadingSpinner /> : null}
+      <CardElement className='mt-3' />
+      <button
+        onClick={paymentHandler}
+        disabled={isProcessingPayment}
+        className='btn btn-primary mt-4'
+      >
+        Pay Now
+      </button>
     </div>
   );
 };

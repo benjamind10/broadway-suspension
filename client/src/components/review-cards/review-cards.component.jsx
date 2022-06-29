@@ -26,9 +26,7 @@ const ReviewCards = () => {
       <h2 className='review-title text-center py-4'>
         <span>Where research and precision engineering meet; </span>
         <br />
-        <span className='font-weight-bold font-italic'>
-          style is expected.
-        </span>
+        <span className='font-weight-bold font-italic'>style is expected.</span>
       </h2>
       <div className='row justify-content-around review-card-container p-4'>
         {reviews.map((review, idx) => (
@@ -44,15 +42,13 @@ const ReviewCards = () => {
                 <path
                   d='M10.208 17.711h6.124v16.332H0V21.684C0 8.184 5.444.956 16.332 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766zm24.498 0h6.124v16.332H24.498V21.684C24.498 8.184 29.942.956 40.83 0v6.125c-4.083 1.14-6.124 4.414-6.124 9.82v1.766z'
                   fill='#000'
-                  fill-rule='evenodd'
+                  fillRule='evenodd'
                 ></path>
               </svg>
               <h5 className='card-title'>{review.title}</h5>
               <p className='card-text'>{review.body}</p>
             </div>
-            <h6 className='card-subtitle text-muted m-2'>
-              - {review.author}
-            </h6>
+            <h6 className='card-subtitle text-muted m-2'>- {review.author}</h6>
           </div>
         ))}
       </div>

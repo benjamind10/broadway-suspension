@@ -4,12 +4,14 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
+  margin-right: 0px !important;
   z-index: 998;
 }
 
 .nav-item a {
   text-decoration: none;
   color: inherit !important;
+  padding: 0;
 }
 
 .nav-item {
