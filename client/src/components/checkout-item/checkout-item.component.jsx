@@ -1,10 +1,7 @@
-import React, { useContext } from 'react';
+import React from 'react';
 
 import { useStoreContext } from '../../utils/GlobalState';
-import {
-  REMOVE_FROM_CART,
-  UPDATE_CART_QUANTITY,
-} from '../../utils/actions';
+import { REMOVE_FROM_CART, UPDATE_CART_QUANTITY } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 
 import './checkout.item.styles.css';
@@ -66,10 +63,7 @@ const CheckoutItem = ({ cartItem }) => {
         />
       </span>
       <span className='price'> {price}</span>
-      <div
-        className='remove-button'
-        onClick={() => removeFromCart(cartItem)}
-      >
+      <div className='remove-button' onClick={() => removeFromCart(cartItem)}>
         &#10005;
       </div>
     </div>

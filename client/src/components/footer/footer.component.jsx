@@ -1,7 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 import './footer.styles.css';
 
@@ -14,9 +11,11 @@ const Footer = () => {
             <div className='col-sm-12 col-md-6'>
               <h6>About</h6>
               <p className='text-justify'>
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laboriosam, doloribus nam
-                officia molestias at dolor, quos temporibus eius dolore neque aliquam qui magnam
-                consequuntur, ex non provident ipsam ab voluptates.
+                Here at Broadway Suspension we thrive to make a product that
+                stands out beyond what is available. As we bring in new products
+                to the market we make sure that we put our hands on the intended
+                make or model. We specalize in hand picking our parts. We only
+                use the highest quality materials to brin you optimal quality.
               </p>
             </div>
 
@@ -51,7 +50,9 @@ const Footer = () => {
                   <a href='/'>Contribute</a>
                 </li>
                 <li>
-                  <a href='http://scanfcode.com/privacy-policy/'>Privacy Policy</a>
+                  <a href='http://scanfcode.com/privacy-policy/'>
+                    Privacy Policy
+                  </a>
                 </li>
                 <li>
                   <a href='/'>Sitemap</a>

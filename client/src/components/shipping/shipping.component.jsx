@@ -112,7 +112,7 @@ const Shipping = ({ calculateTotal }) => {
               </label>
             </div>
             <div className='col-4'>
-              <label className='field col-12'>
+              <label className='field col-'>
                 <span className='field__label' for='zipcode'>
                   Zip code
                 </span>
