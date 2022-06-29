@@ -7,6 +7,7 @@ MERN e-commerce app for a local suspension store. Uses Node/Express backend with
 ## Technologies used:
 
 - React
+- GraphQL
 - Bootstrap
 - Express
 - Mongodb
