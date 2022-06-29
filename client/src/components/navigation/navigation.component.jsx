@@ -62,12 +62,6 @@ function Navigation() {
     } else {
       return (
         <Nav>
-          {/* <Nav.Item href='/signup' className='nav-item'>
-            Signup
-          </Nav.Item>
-          <Nav.Item href='/login' className='nav-item'>
-            Login
-          </Nav.Item> */}
           <LoginModal />
         </Nav>
       );
@@ -76,7 +70,7 @@ function Navigation() {
 
   return (
     <div className='row justify-content-center nav-container'>
-      <Cart />
+      <Cart  />
       <a className='col-12 col-sm-12 col-md-2 nav-logo' href='/'>
         <img src={BwsLogo} className='nav-logo' alt='Broadway Logo' />
       </a>

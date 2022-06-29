@@ -1,0 +1,25 @@
+.about-picture-engineering {
+    height: 400px;
+    background-image: url('../../assets/about-engineering.png');
+    background-size: 100%;
+    background-position-y: 32%;
+}
+.about-picture-engineering img {
+    max-width: 100%;
+    overflow: hidden;
+}
+
+.about-text {
+    background-color: rgb(225, 137, 137);
+}
+
+.about-picture-coilover {
+    height: 400px;
+    background-image: url('../../assets/about-coilovers.JPG');
+    background-size: 100%;
+    background-position-y: 20%;
+}
+.about-picture-coilover img {
+    max-width: 100%;
+    overflow: hidden;
+}

@@ -23,6 +23,7 @@ function Login(props) {
       });
       const token = mutationResponse.data.login.token;
       Auth.login(token);
+      
     } catch (e) {
       console.log(e);
     }
@@ -49,7 +50,7 @@ function Login(props) {
             name='email'
             type='email'
             id='email'
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
         <div className='flex-row space-between my-2'>
@@ -59,7 +60,7 @@ function Login(props) {
             name='password'
             type='password'
             id='pwd'
-            // onChange={handleChange}
+            onChange={handleChange}
           />
         </div>
         {error ? (
