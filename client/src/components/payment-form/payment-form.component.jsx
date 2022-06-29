@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
+import {
+  CardElement,
+  useStripe,
+  useElements,
+  PaymentElement,
+} from '@stripe/react-stripe-js';
 import { useQuery, useMutation } from '@apollo/client';
 
 import { QUERY_USER } from '../../utils/queries';
@@ -8,8 +13,9 @@ import Auth from '../../utils/auth';
 import { idbPromise } from '../../utils/helpers';
 
 import './payment-form.styles.css';
+import CheckoutForm from '../shipping/shipping.component';
 
-const PaymentForm = ({ cartItems, cartTotal }) => {
+const PaymentForm = ({ cartItems, cartTotal, shipping }) => {
   const stripe = useStripe();
   const elements = useElements();
 
@@ -87,8 +93,8 @@ const PaymentForm = ({ cartItems, cartTotal }) => {
     <div>
       <form onSubmit={paymentHandler}>
         <h2>Credit Card Payment:</h2>
-        <CardElement />
-        <button className='btn btn-primary mt-2'>Pay Now</button>
+        <CardElement className='mt-3' />
+        <button className='btn btn-primary mt-4'>Pay Now</button>
       </form>
     </div>
   );
