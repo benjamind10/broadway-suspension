@@ -87,14 +87,14 @@ const PaymentForm = ({ cartItems, cartTotal, shipping }) => {
   };
 
   return (
-    <div>
+    <div className='text-center'>
       <h2>Credit Card Payment:</h2>
       {isProcessingPayment ? <LoadingSpinner /> : null}
       <CardElement className='mt-3' />
       <button
         onClick={paymentHandler}
         disabled={isProcessingPayment}
-        className='btn btn-primary mt-4'
+        className='btn btn-success mt-4 w-75'
       >
         Pay Now
       </button>

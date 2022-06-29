@@ -7,10 +7,7 @@ import CartItem from '../cart-item/cart-item.component';
 import Auth from '../../utils/auth';
 import { QUERY_CHECKOUT } from '../../utils/queries';
 import { useStoreContext } from '../../utils/GlobalState';
-import {
-  TOGGLE_CART,
-  ADD_MULTIPLE_TO_CART,
-} from '../../utils/actions';
+import { TOGGLE_CART, ADD_MULTIPLE_TO_CART } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
 import CartIcon from '../../assets/shoppingcart.svg';
 
@@ -59,11 +56,7 @@ const Cart = () => {
     return (
       <div className='cart-closed' onClick={toggleCart}>
         <span role='img' aria-label='trash'>
-          <img
-            className='cart-icon'
-            src={CartIcon}
-            alt='shopping cart'
-          />
+          <img className='cart-icon' src={CartIcon} alt='shopping cart' />
         </span>
       </div>
     );
@@ -80,7 +73,7 @@ const Cart = () => {
         <p>[close]</p>
       </div>
       <div className='cart-header mt-4'>
-        <h2 className='pt-1'>Your Cart</h2>
+        <h2 className='pt-1 text-dark'>Your Cart</h2>
       </div>
       {state.cart.length ? (
         <div>
@@ -88,11 +81,11 @@ const Cart = () => {
             <CartItem key={item._id} item={item} />
           ))}
           <div className='row space-between justify-content-center text-center'>
-            <h6 className='col-12 text-light'>Total: ${calculateTotal()}</h6>
+            <h6 className='col-12 text-dark'>Total: ${calculateTotal()}</h6>
             {Auth.loggedIn() ? (
               <button
                 onClick={routeChange}
-                className='btn btn-primary m-1 col-10'
+                className='btn btn-success m-1 col-10'
               >
                 Checkout
               </button>
