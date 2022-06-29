@@ -25,7 +25,7 @@ const Shipping = ({ calculateTotal }) => {
         <h1 className='mb-3'>Shipping</h1>
         <p>Please enter your shipping details.</p>
         <hr />
-        <form class='form'>
+        <form className='form-group'>
           <div className='row'>
             <div className=''>
               <label className='col-md-6 mb-3'>
