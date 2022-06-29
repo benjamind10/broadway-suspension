@@ -61,7 +61,7 @@ function Navigation() {
       );
     } else {
       return (
-        <Nav>
+        <Nav pullRight>
           <LoginModal />
         </Nav>
       );
@@ -75,7 +75,7 @@ function Navigation() {
         <img src={BwsLogo} className='nav-logo' alt='Broadway Logo' />
       </a>
       <div className='col-12 col-sm-12 col-lg-8 desktop-nav'>
-        <Navbar className='navbar'>
+        <Navbar className='navbar' pullRight>
           <Nav>
             <Nav.Item href='/' className='nav-item'>
               Home
@@ -102,13 +102,13 @@ function Navigation() {
               </Link>
             </Dropdown>
           </Nav>
-          <Nav>{showNavigation()}</Nav>
+          <Nav pullRight>{showNavigation()}</Nav>
         </Navbar>
       </div>
       <div className='col-12 mobile-nav'>
         <Navbar className='navbar'>
           <Nav>
-            <Dropdown className='nav-item' title='Menu'>
+            <Dropdown pullRight className='nav-item' title='Menu'>
               <Link to='/'>
                 <Dropdown.Item href='/' className='nav-item'>
                   Home
@@ -141,7 +141,7 @@ function Navigation() {
               </Link>
             </Dropdown>
           </Nav>
-          <Nav>{showNavigation()}</Nav>
+          <Nav pullLeft>{showNavigation()}</Nav>
         </Navbar>
       </div>
     </div>
