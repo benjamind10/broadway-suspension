@@ -3,7 +3,7 @@ import { useQuery } from '@apollo/client';
 
 import ProductItem from '../product-item/product-item.component';
 import { QUERY_PRODUCTS } from '../../utils/queries';
-import spinner from '../../assets/spinner.gif';
+import LoadingSpinner from '../spinner/spinner.component';
 import { useStoreContext } from '../../utils/GlobalState';
 import { UPDATE_PRODUCTS } from '../../utils/actions';
 import { idbPromise } from '../../utils/helpers';
@@ -68,7 +68,7 @@ function ProductList({ id }) {
       ) : (
         <h3>You haven't added any products yet!</h3>
       )}
-      {loading ? <img src={spinner} alt='loading' /> : null}
+      {loading ? <LoadingSpinner /> : null}
     </div>
   );
 }

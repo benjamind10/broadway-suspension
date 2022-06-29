@@ -26,7 +26,7 @@ db.once('open', async () => {
     },
     {
       name: 'BWS E36 Coilovers',
-      description: `BWS Version II Coilovers-BMW E36 (1992-1999 NON M (including '95 M3))`,
+      description: `BWS Version II Coilovers-BMW E36 (1992-1999 NON M)`,
       image: 'bws_ver2_e36_coilover.jpg',
       category: categories[0]._id,
       price: 1999.99,
@@ -35,8 +35,7 @@ db.once('open', async () => {
     {
       name: 'BWS F87 Coilovers',
       category: categories[0]._id,
-      description:
-        'BWS Version II Coilovers-BMW M2 Competition (F87) 2018+',
+      description: 'BWS Version II Coilovers-BMW M2 Competition (F87) 2018+',
       image: 'bws_f87_m2_coilover.jpg',
       price: 1999.99,
       quantity: 20,
@@ -44,8 +43,7 @@ db.once('open', async () => {
     {
       name: 'MK7 500s Coilovers',
       category: categories[1]._id,
-      description:
-        'Volkswagen MK7 Golf-GTI-Jetta (with IRS) - Broadway Static 500S Coilovers',
+      description: 'Volkswagen MK7 Golf-GTI-Jetta (with IRS) ',
       image: 'vw_mk7_500s_coilovers.jpg',
       price: 1524.99,
       quantity: 5,
@@ -53,8 +51,7 @@ db.once('open', async () => {
     {
       name: 'VW MK5/6 Coilovers',
       category: categories[1]._id,
-      description:
-        'Volkswagen MK5/MK6 Rabbit-GTI-Jetta (with IRS) - Broadway Static 500S Coilovers',
+      description: 'Volkswagen MK5/MK6 Rabbit-GTI-Jetta (with IRS)',
       image: 'vw_mk6_rabbit_coilovers.jpg',
       price: 1524.99,
       quantity: 16,
@@ -62,8 +59,7 @@ db.once('open', async () => {
     {
       name: 'BWS II MK7 Coilovers',
       category: categories[1]._id,
-      description:
-        'BWS Version II Coilovers-Volkswagen MK7 Golf-GTI-Jetta',
+      description: 'BWS Version II Coilovers-Volkswagen MK7 Golf-GTI-Jetta',
       image: 'bws_ver2_coilovers_mk7.jpg',
       price: 1999.99,
       quantity: 12,
@@ -71,8 +67,7 @@ db.once('open', async () => {
     {
       name: 'VW CC 500s Coilovers',
       category: categories[1]._id,
-      description:
-        'Volkswagen CC 2008+ - Broadway Static 500S Coilovers',
+      description: 'Volkswagen CC 2008+ - Broadway Static 500S Coilovers',
       image: 'bws_vw_cc_coilovers.jpg',
       price: 1524.99,
       quantity: 3,
